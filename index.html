@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAJRUSH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0c2461, #1e3799, #4a69bd);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff9a00, #ff5e62, #00dbde);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Marquee Styling */
+        .marquee-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .marquee {
+            font-size: 1.5rem;
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 10px 0;
+            color: #ffeb3b;
+        }
+        
+        /* Content Styling */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .highlight {
+            color: #ffeb3b;
+            font-weight: 600;
+        }
+        
+        /* Links Section */
+        .links-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .instagram .link-icon {
+            color: #e4405f;
+        }
+        
+        .sociabuzz .link-icon {
+            color: #00aced;
+        }
+        
+        .link-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .link-desc {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .link-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(to right, #ff9a00, #ff5e62);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+        }
+        
+        .link-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+        }
+        
+        /* Festive Elements */
+        .festive {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .festive-item {
+            font-size: 2rem;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .new-year {
+            color: #4cd137;
+        }
+        
+        .christmas {
+            color: #e84118;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animation for festive elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .festive-item {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .christmas {
+            animation-delay: 0.5s;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .marquee {
+                font-size: 1.2rem;
+            }
+            
+            .link-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .festive-item {
+                font-size: 1.5rem;
+                padding: 10px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .marquee {
+                font-size: 1rem;
+            }
+            
+            .intro {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">FAJRUSH</h1>
+            <p class="subtitle">Selamat datang di website resmi Fajrush</p>
+            
+            <!-- Teks Berjalan (Marquee) -->
+            <div class="marquee-container">
+                <div class="marquee" id="marqueeText">
+                    SELAMAT DATANG DI WEBSITE FAJRUSH, SELAMAT TAHUN BARU 2026 DAN SELAMAT NATAL 2025
+                </div>
+            </div>
+        </header>
+        
+        <section class="content">
+            <div class="intro">
+                <p>Website ini dibuat untuk menyambut tahun baru <span class="highlight">2026</span> dan perayaan <span class="highlight">Natal 2025</span>. Di sini Anda dapat menemukan tautan ke media sosial dan platform terkait <span class="highlight">Fajrush</span>.</p>
+                <p>Gunakan tautan di bawah ini untuk terhubung dengan <span class="highlight">Fajrush</span> di berbagai platform.</p>
+            </div>
+            
+            <!-- Festive Elements -->
+            <div class="festive">
+                <div class="festive-item new-year">
+                    <i class="fas fa-glass-cheers"></i> Tahun Baru 2026
+                </div>
+                <div class="festive-item christmas">
+                    <i class="fas fa-tree"></i> Natal 2025
+                </div>
+            </div>
+            
+            <!-- Links Section -->
+            <div class="links-section">
+                <div class="link-card instagram">
+                    <div class="link-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="link-title">Instagram</h3>
+                    <p class="link-desc">Ikuti perkembangan terbaru dan konten eksklusif di Instagram Fajrush</p>
+                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-button">Kunjungi Instagram</a>
+                </div>
+                
+                <div class="link-card sociabuzz">
+                    <div class="link-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="link-title">Social Buzz</h3>
+                    <p class="link-desc">Bergabunglah dengan komunitas Fajrush di platform Social Buzz</p>
+                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="link-button">Kunjungi Social Buzz</a>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025-2026 Fajrush. Semua hak dilindungi.</p>
+            <p>Website dibuat untuk menyambut Tahun Baru 2026 dan Natal 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Efek marquee yang lebih halus
+        document.addEventListener('DOMContentLoaded', function() {
+            const marqueeText = document.getElementById('marqueeText');
+            const text = marqueeText.textContent;
+            
+            // Mengulang teks agar efek berjalan lebih panjang
+            marqueeText.textContent = text + " " + text + " " + text;
+            
+            // Animasi manual untuk kontrol yang lebih baik
+            let position = 0;
+            const speed = 1;
+            
+            function animateMarquee() {
+                position -= speed;
+                
+                // Reset posisi jika teks sudah bergeser sepenuhnya
+                if (position < -marqueeText.scrollWidth / 3) {
+                    position = 0;
+                }
+                
+                marqueeText.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(animateMarquee);
+            }
+            
+            // Mulai animasi
+            animateMarquee();
+            
+            // Efek interaktif pada link cards
+            const linkCards = document.querySelectorAll('.link-card');
+            linkCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Tambahkan efek salju untuk tema Natal
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.innerHTML = '❄';
+                snowflake.style.position = 'fixed';
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.top = '-20px';
+                snowflake.style.fontSize = Math.random() * 15 + 10 + 'px';
+                snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+                snowflake.style.zIndex = '9999';
+                snowflake.style.pointerEvents = 'none';
+                snowflake.style.userSelect = 'none';
+                
+                document.body.appendChild(snowflake);
+                
+                // Animasi salju jatuh
+                const duration = Math.random() * 5 + 5;
+                const animation = snowflake.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: snowflake.style.opacity },
+                    { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'linear'
+                });
+                
+                // Hapus elemen setelah animasi selesai
+                animation.onfinish = () => {
+                    snowflake.remove();
+                };
+            }
+            
+            // Buat salju setiap 300ms
+            setInterval(createSnowflake, 300);
+        });
+    </script>
+</body>
+</html>
