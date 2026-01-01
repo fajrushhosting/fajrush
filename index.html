@@ -339,85 +339,74 @@
     </div>
 
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            // Set target date (1 hari 3 jam 30 menit 20 detik dari sekarang)
-            const targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 1);
-            targetDate.setHours(targetDate.getHours() + 3);
-            targetDate.setMinutes(targetDate.getMinutes() + 30);
-            targetDate.setSeconds(targetDate.getSeconds() + 20);
+        // Countdown Timer - SIMPLE FIX
+        let countdownInterval;
+        
+        function startCountdown() {
+            // Set waktu target: 1 hari, 3 jam, 30 menit, 20 detik dari sekarang
+            const targetTime = new Date().getTime() + 
+                (1 * 24 * 60 * 60 * 1000) + // 1 hari
+                (3 * 60 * 60 * 1000) +      // 3 jam
+                (30 * 60 * 1000) +          // 30 menit
+                (20 * 1000);                // 20 detik
             
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-            
-            // Jika waktu sudah berlalu, reset ke 1 hari 3 jam 30 menit 20 detik
-            if (distance < 0) {
-                // Reset target date
-                const newTargetDate = new Date();
-                newTargetDate.setDate(newTargetDate.getDate() + 1);
-                newTargetDate.setHours(newTargetDate.getHours() + 3);
-                newTargetDate.setMinutes(newTargetDate.getMinutes() + 30);
-                newTargetDate.setSeconds(newTargetDate.getSeconds() + 20);
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetTime - now;
                 
-                // Hitung ulang distance
-                const newDistance = newTargetDate - now;
+                if (distance < 0) {
+                    // Jika waktu sudah habis, reset ke awal
+                    clearInterval(countdownInterval);
+                    startCountdown(); // Restart countdown
+                    return;
+                }
                 
-                // Calculate days, hours, minutes, seconds
-                const days = Math.floor(newDistance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((newDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((newDistance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((newDistance % (1000 * 60)) / 1000);
-                
-                // Display the result
-                document.getElementById("days").textContent = days.toString().padStart(2, '0');
-                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-            } else {
-                // Calculate days, hours, minutes, seconds
+                // Hitung hari, jam, menit, detik
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                // Display the result
+                // Tampilkan hasil
                 document.getElementById("days").textContent = days.toString().padStart(2, '0');
                 document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
                 document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
                 document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
             }
+            
+            // Update setiap detik
+            clearInterval(countdownInterval);
+            countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Panggil segera untuk inisialisasi
         }
         
-        // Update countdown every 1 second
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        
-        // Initial call to display countdown immediately
-        updateCountdown();
+        // Mulai countdown saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', startCountdown);
         
         // Animate progress bar
         const progressBar = document.querySelector('.progress-bar');
+        const progressText = document.querySelector('.progress-text span:last-child');
         let progress = 65;
         
         function animateProgressBar() {
-            // Simulate random progress updates
+            // Simulasi progress acak
             const increment = Math.random() * 0.5;
             progress = Math.min(progress + increment, 100);
             
             progressBar.style.width = progress.toFixed(1) + '%';
-            document.querySelector('.progress-text span:last-child').textContent = progress.toFixed(1) + '%';
+            progressText.textContent = progress.toFixed(1) + '%';
             
-            // Jika progress mencapai 100%, reset ke 65%
+            // Reset progress jika mencapai 100%
             if (progress >= 100) {
                 setTimeout(() => {
                     progress = 65;
                     progressBar.style.width = progress + '%';
-                    document.querySelector('.progress-text span:last-child').textContent = progress + '%';
+                    progressText.textContent = progress + '%';
                 }, 3000);
             }
         }
         
-        // Update progress every 5 seconds
+        // Update progress setiap 5 detik
         setInterval(animateProgressBar, 5000);
     </script>
 </body>
