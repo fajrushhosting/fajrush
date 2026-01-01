@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAJRUSH</title>
+    <title>FAJRUSH - Website Resmi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0c2461, #1e3799, #4a69bd);
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
@@ -42,7 +42,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 10px;
-            background: linear-gradient(to right, #ff9a00, #ff5e62, #00dbde);
+            background: linear-gradient(to right, #00dbde, #0093E9, #80D0C7);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -58,7 +58,7 @@
         
         /* Marquee Styling */
         .marquee-container {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
             margin: 30px auto;
@@ -66,6 +66,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
         
         .marquee {
@@ -73,7 +74,7 @@
             font-weight: 600;
             white-space: nowrap;
             padding: 10px 0;
-            color: #ffeb3b;
+            color: #80D0C7;
         }
         
         /* Content Styling */
@@ -95,10 +96,11 @@
             padding: 25px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .highlight {
-            color: #ffeb3b;
+            color: #80D0C7;
             font-weight: 600;
         }
         
@@ -157,42 +159,49 @@
         .link-button {
             display: inline-block;
             padding: 12px 25px;
-            background: linear-gradient(to right, #ff9a00, #ff5e62);
+            background: linear-gradient(to right, #0093E9, #00dbde);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 147, 233, 0.4);
         }
         
         .link-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 147, 233, 0.6);
         }
         
-        /* Festive Elements */
-        .festive {
+        /* Stats Section */
+        .stats {
             display: flex;
             justify-content: center;
             margin: 40px 0;
-            gap: 20px;
+            gap: 40px;
             flex-wrap: wrap;
         }
         
-        .festive-item {
-            font-size: 2rem;
-            padding: 15px 25px;
-            border-radius: 10px;
+        .stat-item {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            min-width: 200px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .new-year {
-            color: #4cd137;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #80D0C7;
+            margin-bottom: 10px;
         }
         
-        .christmas {
-            color: #e84118;
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
         }
         
         /* Footer */
@@ -205,18 +214,27 @@
             opacity: 0.8;
         }
         
-        /* Animation for festive elements */
+        .current-year {
+            color: #80D0C7;
+            font-weight: 600;
+        }
+        
+        /* Animation for elements */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
         
-        .festive-item {
-            animation: float 3s ease-in-out infinite;
+        .link-card {
+            animation: float 4s ease-in-out infinite;
         }
         
-        .christmas {
-            animation-delay: 0.5s;
+        .instagram .link-card {
+            animation-delay: 0.2s;
+        }
+        
+        .sociabuzz .link-card {
+            animation-delay: 0.4s;
         }
         
         /* Responsive Design */
@@ -234,9 +252,13 @@
                 max-width: 350px;
             }
             
-            .festive-item {
-                font-size: 1.5rem;
-                padding: 10px 15px;
+            .stat-item {
+                min-width: 150px;
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
             }
         }
         
@@ -253,36 +275,93 @@
                 padding: 15px;
                 font-size: 1rem;
             }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 15px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(128, 208, 199, 0.1);
+            border-radius: 50%;
+            animation: float-particle 20s infinite linear;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
         <header>
             <h1 class="title">FAJRUSH</h1>
-            <p class="subtitle">Selamat datang di website resmi Fajrush</p>
+            <p class="subtitle">Kreativitas tanpa batas, inspirasi untuk semua</p>
             
             <!-- Teks Berjalan (Marquee) -->
             <div class="marquee-container">
                 <div class="marquee" id="marqueeText">
-                    SELAMAT DATANG DI WEBSITE FAJRUSH, SELAMAT TAHUN BARU 2026 DAN SELAMAT NATAL 2025
+                    SELAMAT DATANG DI WEBSITE RESMI FAJRUSH
                 </div>
             </div>
         </header>
         
         <section class="content">
             <div class="intro">
-                <p>Website ini dibuat untuk menyambut tahun baru <span class="highlight">2026</span> dan perayaan <span class="highlight">Natal 2025</span>. Di sini Anda dapat menemukan tautan ke media sosial dan platform terkait <span class="highlight">Fajrush</span>.</p>
-                <p>Gunakan tautan di bawah ini untuk terhubung dengan <span class="highlight">Fajrush</span> di berbagai platform.</p>
+                <p>Selamat datang di website resmi <span class="highlight">Fajrush</span>, platform untuk berbagi kreativitas dan inspirasi. Di sini Anda dapat menemukan tautan ke media sosial dan platform digital lainnya.</p>
+                <p>Jelajahi dan terhubung dengan <span class="highlight">Fajrush</span> melalui berbagai platform di bawah ini untuk mendapatkan konten terbaru dan terbaik.</p>
             </div>
             
-            <!-- Festive Elements -->
-            <div class="festive">
-                <div class="festive-item new-year">
-                    <i class="fas fa-glass-cheers"></i> Tahun Baru 2026
+            <!-- Stats Section -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="followersCount">10K+</div>
+                    <div class="stat-label">Pengikut</div>
                 </div>
-                <div class="festive-item christmas">
-                    <i class="fas fa-tree"></i> Natal 2025
+                <div class="stat-item">
+                    <div class="stat-number" id="contentCount">500+</div>
+                    <div class="stat-label">Konten</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="yearCount">2025</div>
+                    <div class="stat-label">Tahun</div>
                 </div>
             </div>
             
@@ -309,8 +388,8 @@
         </section>
         
         <footer>
-            <p>&copy; 2025-2026 Fajrush. Semua hak dilindungi.</p>
-            <p>Website dibuat untuk menyambut Tahun Baru 2026 dan Natal 2025</p>
+            <p>&copy; <span class="current-year">2025</span> Fajrush. Semua hak dilindungi.</p>
+            <p>Website resmi Fajrush - Menghubungkan kreativitas dengan dunia</p>
         </footer>
     </div>
 
@@ -321,7 +400,7 @@
             const text = marqueeText.textContent;
             
             // Mengulang teks agar efek berjalan lebih panjang
-            marqueeText.textContent = text + " " + text + " " + text;
+            marqueeText.textContent = text + " ✦ " + text + " ✦ " + text;
             
             // Animasi manual untuk kontrol yang lebih baik
             let position = 0;
@@ -346,47 +425,71 @@
             const linkCards = document.querySelectorAll('.link-card');
             linkCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.transform = 'translateY(-15px) scale(1.03)';
+                    this.style.animationPlayState = 'paused';
                 });
                 
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
+                    this.style.animationPlayState = 'running';
                 });
             });
             
-            // Tambahkan efek salju untuk tema Natal
-            function createSnowflake() {
-                const snowflake = document.createElement('div');
-                snowflake.innerHTML = '❄';
-                snowflake.style.position = 'fixed';
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.top = '-20px';
-                snowflake.style.fontSize = Math.random() * 15 + 10 + 'px';
-                snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-                snowflake.style.zIndex = '9999';
-                snowflake.style.pointerEvents = 'none';
-                snowflake.style.userSelect = 'none';
+            // Buat partikel latar belakang
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
                 
-                document.body.appendChild(snowflake);
-                
-                // Animasi salju jatuh
-                const duration = Math.random() * 5 + 5;
-                const animation = snowflake.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: snowflake.style.opacity },
-                    { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                ], {
-                    duration: duration * 1000,
-                    easing: 'linear'
-                });
-                
-                // Hapus elemen setelah animasi selesai
-                animation.onfinish = () => {
-                    snowflake.remove();
-                };
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size
+                    const size = Math.random() * 20 + 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Random position
+                    particle.style.left = `${Math.random() * 100}vw`;
+                    
+                    // Random animation duration
+                    const duration = Math.random() * 20 + 10;
+                    particle.style.animationDuration = `${duration}s`;
+                    
+                    // Random delay
+                    const delay = Math.random() * 5;
+                    particle.style.animationDelay = `${delay}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
             }
             
-            // Buat salju setiap 300ms
-            setInterval(createSnowflake, 300);
+            // Animasi statistik counter
+            function animateCounter(element, targetValue, suffix = '') {
+                let current = 0;
+                const increment = targetValue / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= targetValue) {
+                        current = targetValue;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + suffix;
+                }, 20);
+            }
+            
+            // Set current year
+            document.querySelector('.current-year').textContent = new Date().getFullYear();
+            document.getElementById('yearCount').textContent = new Date().getFullYear();
+            
+            // Inisialisasi
+            createParticles();
+            
+            // Animate counters
+            setTimeout(() => {
+                animateCounter(document.getElementById('followersCount'), 10000, '+');
+                animateCounter(document.getElementById('contentCount'), 500, '+');
+            }, 1000);
         });
     </script>
 </body>
