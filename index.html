@@ -6,380 +6,447 @@
     <title>Website Resmi Fajrush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: #0f172a;
-            color: #f1f5f9;
-            line-height: 1.6;
+            background-color: #0a0a1a;
+            color: #f0f0f0;
             overflow-x: hidden;
+            min-height: 100vh;
         }
-
-        /* Container utama */
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Header dan Navigasi */
         header {
-            background-color: rgba(15, 23, 42, 0.9);
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid rgba(0, 150, 255, 0.2);
         }
-
-        nav {
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
             font-size: 28px;
-            font-weight: 700;
-            color: #60a5fa;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+            font-weight: 800;
+            background: linear-gradient(to right, #00a6ff, #00ffcc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(0, 166, 255, 0.5);
         }
-
-        .logo i {
-            margin-right: 10px;
-            color: #3b82f6;
-        }
-
-        .nav-links {
+        
+        nav ul {
             display: flex;
             list-style: none;
         }
-
-        .nav-links li {
+        
+        nav ul li {
             margin-left: 30px;
         }
-
-        .nav-links a {
-            color: #cbd5e1;
+        
+        nav ul li a {
+            color: #f0f0f0;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
-
-        .nav-links a:hover {
-            color: #60a5fa;
+        
+        nav ul li a:hover {
+            color: #00a6ff;
+            background: rgba(0, 166, 255, 0.1);
+            transform: translateY(-2px);
         }
-
-        /* Jumbotron Section */
-        .jumbotron {
-            min-height: 100vh;
+        
+        /* Bagian Hero dengan animasi jumbo */
+        .hero {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 100px 20px 50px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
-
-        .jumbotron::before {
-            content: '';
+        
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            z-index: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 100, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 255, 200, 0.1) 0%, transparent 50%);
+            z-index: -1;
         }
-
-        .jumbotron-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
+        
+        .jumbo-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
         }
-
-        h1 {
-            font-size: 4.5rem;
+        
+        .jumbo-item {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00a6ff, #00ffcc);
+            animation: float 20s infinite linear;
+            opacity: 0.5;
+            filter: blur(20px);
+        }
+        
+        .jumbo-item:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .jumbo-item:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+        
+        .jumbo-item:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .jumbo-item:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            left: 70%;
+            animation-delay: -15s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, 50px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, 100px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-50px, 50px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+        
+        /* Teks berjalan */
+        .marquee-container {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 166, 255, 0.15);
+            padding: 15px 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(0, 166, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 166, 255, 0.3);
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-size: 24px;
+            font-weight: 700;
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Konten hero */
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(10, 10, 26, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 166, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            animation: content-appear 1.5s ease-out;
+        }
+        
+        @keyframes content-appear {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content h1 {
+            font-size: 60px;
+            line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            background: linear-gradient(to right, #00a6ff, #00ffcc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1.2;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 5px 15px rgba(0, 166, 255, 0.3);
         }
-
-        .tagline {
-            font-size: 1.5rem;
-            color: #94a3b8;
-            margin-bottom: 40px;
-            max-width: 700px;
+        
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #d0d0d0;
         }
-
-        /* Marquee Container */
-        .marquee-container {
-            width: 100%;
-            background: linear-gradient(90deg, #1e293b, #334155);
-            padding: 20px 0;
-            margin: 30px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid #475569;
-        }
-
-        .marquee {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fbbf24;
-            white-space: nowrap;
-            animation: marquee 15s linear infinite;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Social Links Section */
-        .social-section {
-            margin-top: 40px;
-            padding: 30px;
-            background-color: rgba(30, 41, 59, 0.6);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid #475569;
-        }
-
-        .social-title {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #cbd5e1;
-        }
-
+        
+        /* Bagian link media sosial */
         .social-links {
+            margin-top: 50px;
+        }
+        
+        .social-links h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #00ffcc;
+            text-align: center;
+        }
+        
+        .links-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
         }
-
+        
         .social-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            padding: 25px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #f1f5f9;
-            width: 200px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid #475569;
+            border: 1px solid rgba(0, 166, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-
+        
         .social-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: #60a5fa;
+            border-color: #00a6ff;
+            box-shadow: 0 15px 25px rgba(0, 166, 255, 0.3);
         }
-
-        .social-card i {
-            font-size: 2.8rem;
+        
+        .social-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .instagram .social-icon {
+            color: #E1306C;
+            text-shadow: 0 0 15px rgba(225, 48, 108, 0.5);
+        }
+        
+        .sociabuzz .social-icon {
+            color: #00ffcc;
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+        }
+        
+        .social-card h3 {
+            font-size: 22px;
             margin-bottom: 15px;
+            color: #f0f0f0;
         }
-
-        .instagram i {
-            color: #e4405f;
-            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .sociabuzz i {
-            color: #8b5cf6;
-        }
-
-        .social-card span {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
+        
         .social-card p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            text-align: center;
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
         }
-
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, #00a6ff, #00ffcc);
+            color: #0a0a1a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 166, 255, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 166, 255, 0.6);
+        }
+        
         /* Footer */
         footer {
-            background-color: #0f172a;
+            margin-top: 80px;
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid #334155;
-            margin-top: 60px;
+            background: rgba(5, 5, 15, 0.9);
+            border-top: 1px solid rgba(0, 166, 255, 0.2);
         }
-
-        .copyright {
-            color: #94a3b8;
-            font-size: 1rem;
+        
+        footer p {
+            color: #888;
+            font-size: 16px;
         }
-
-        /* Responsive Design */
+        
+        /* Responsif */
         @media (max-width: 992px) {
-            h1 {
-                font-size: 3.5rem;
+            .hero-content h1 {
+                font-size: 48px;
             }
             
-            .marquee {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .marquee {
-                font-size: 1.5rem;
-            }
-            
-            .social-links {
+            .links-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .nav-links {
-                display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
             }
             
             .logo {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.2rem;
+                margin-bottom: 20px;
             }
             
-            .marquee-container {
-                padding: 15px 0;
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .hero-content {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
             }
             
             .marquee {
-                font-size: 1.3rem;
+                font-size: 18px;
             }
-            
-            .jumbotron {
-                padding: 80px 15px 30px;
-            }
-        }
-
-        /* Animasi tambahan */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .jumbotron-content > * {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .jumbotron-content h1 {
-            animation-delay: 0.2s;
-        }
-
-        .jumbotron-content .tagline {
-            animation-delay: 0.4s;
-        }
-
-        .marquee-container {
-            animation-delay: 0.6s;
-        }
-
-        .social-section {
-            animation-delay: 0.8s;
         }
     </style>
 </head>
 <body>
-    <!-- Header dengan Navigasi -->
+    <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container header-container">
+            <div class="logo">FAJRUSH</div>
             <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-rocket"></i>
-                    FAJRUSH
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Tentang</a></li>
-                    <li><a href="#"><i class="fas fa-photo-video"></i> Konten</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> Kontak</a></li>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#content">Konten</a></li>
+                    <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Jumbotron Section -->
-    <section class="jumbotron">
-        <div class="jumbotron-content">
-            <h1>FAJRUSH OFFICIAL</h1>
-            <p class="tagline">Platform digital resmi untuk konten kreatif, informasi terbaru, dan interaksi dengan komunitas Fajrush.</p>
-            
-            <!-- Teks Berjalan -->
-            <div class="marquee-container">
-                <div class="marquee">
-                    ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 🚀 TERIMA KASIH ATAS KUNJUNGAN ANDA 🚀 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 🌟 JANGAN LUPA SUBSCRIBE DAN FOLLOW 🌟
-                </div>
-            </div>
+    <!-- Teks Berjalan -->
+    <div class="marquee-container">
+        <div class="marquee">SELAMAT DATANG DI WEBSITE RESMI FAJRUSH • FAJRUSH OFFICIAL WEBSITE • SELAMAT DATANG DI WEBSITE RESMI FAJRUSH • FAJRUSH OFFICIAL WEBSITE •</div>
+    </div>
 
-            <!-- Social Links -->
-            <div class="social-section">
-                <h2 class="social-title">Temukan Saya di Platform Lain</h2>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="social-card instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                        <p>Follow untuk konten harian dan update terbaru</p>
-                    </a>
-                    
-                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="social-card sociabuzz">
-                        <i class="fas fa-users"></i>
-                        <span>Social Buzz</span>
-                        <p>Bergabung dengan tribe untuk dukungan eksklusif</p>
-                    </a>
+    <!-- Hero Section dengan animasi jumbo -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        
+        <!-- Animasi Jumbo -->
+        <div class="jumbo-animation">
+            <div class="jumbo-item"></div>
+            <div class="jumbo-item"></div>
+            <div class="jumbo-item"></div>
+            <div class="jumbo-item"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Selamat Datang di Dunia Kreativitas Fajrush</h1>
+                <p>Website resmi Fajrush adalah pusat segala aktivitas kreatif, konten inspiratif, dan koneksi dengan komunitas. Temukan berbagai karya terbaru, kolaborasi menarik, dan pengalaman interaktif yang akan membawa Anda ke dalam dunia penuh imajinasi dan inovasi.</p>
+                <p>Sebagai kreator konten, Fajrush berkomitmen untuk menghadirkan konten berkualitas yang menghibur, mengedukasi, dan menginspirasi generasi muda Indonesia untuk mengeksplorasi bakat dan potensi mereka.</p>
+                <a href="#social" class="btn">Jelajahi Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link Media Sosial -->
+    <section class="social-links container" id="social">
+        <h2>Temukan Fajrush di Platform Lainnya</h2>
+        <div class="links-container">
+            <div class="social-card instagram">
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
                 </div>
+                <h3>Instagram</h3>
+                <p>Ikuti perkembangan terbaru, konten harian, dan momen eksklusif dari Fajrush di Instagram.</p>
+                <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn">Kunjungi Instagram</a>
+            </div>
+            
+            <div class="social-card sociabuzz">
+                <div class="social-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Social Buzz</h3>
+                <p>Dukung karya Fajrush dan dapatkan akses konten eksklusif melalui platform Sociabuzz.</p>
+                <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn">Kunjungi Sociabuzz</a>
             </div>
         </div>
     </section>
@@ -387,38 +454,39 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="copyright">© 2023 Website Resmi Fajrush. Semua Hak Dilindungi.</p>
+            <p>© 2023 Website Resmi Fajrush. Semua Hak Cipta Dilindungi.</p>
+            <p>Didesain dengan ❤️ untuk komunitas Fajrush</p>
         </div>
     </footer>
 
-    <!-- Efek animasi teks berjalan pada hover -->
     <script>
-        // Menambahkan efek interaktif pada teks berjalan
-        document.addEventListener('DOMContentLoaded', function() {
-            const marquee = document.querySelector('.marquee');
-            
-            marquee.addEventListener('mouseover', function() {
-                this.style.animationPlayState = 'paused';
-                this.style.color = '#fde047';
-            });
-            
-            marquee.addEventListener('mouseout', function() {
-                this.style.animationPlayState = 'running';
-                this.style.color = '#fbbf24';
-            });
-            
-            // Efek hover untuk semua kartu sosial
-            const socialCards = document.querySelectorAll('.social-card');
-            socialCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    const icon = this.querySelector('i');
-                    icon.style.transform = 'scale(1.2)';
-                });
+        // Efek smooth scroll untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                card.addEventListener('mouseleave', function() {
-                    const icon = this.querySelector('i');
-                    icon.style.transform = 'scale(1)';
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
                 });
+            });
+        });
+        
+        // Efek interaktif pada animasi jumbo
+        const jumboItems = document.querySelectorAll('.jumbo-item');
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            jumboItems.forEach((item, index) => {
+                const speed = 0.05 * (index + 1);
+                const x = (mouseX * 100 - 50) * speed;
+                const y = (mouseY * 100 - 50) * speed;
+                
+                item.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
     </script>
