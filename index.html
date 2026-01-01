@@ -3,450 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sedang Dalam Perbaikan</title>
+    <title>Fajrush Official - Linktree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-        }
-        
-        .maintenance-container {
-            max-width: 900px;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .logo {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #bb86fc;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .highlight {
-            color: #bb86fc;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-        
-        .maintenance-icon {
-            font-size: 100px;
-            color: #bb86fc;
-            margin: 30px 0;
-            animation: bounce 2s infinite alternate;
-        }
-        
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-15px); }
-        }
-        
-        .progress-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            height: 25px;
-            margin: 40px 0;
-            overflow: hidden;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #bb86fc 0%, #3700b3 100%);
-            width: 65%;
-            border-radius: 50px;
             position: relative;
-            animation: progressAnimation 3s ease-in-out infinite alternate;
+            overflow-x: hidden;
         }
-        
-        @keyframes progressAnimation {
-            0% { width: 65%; }
-            100% { width: 68%; }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            z-index: -1;
         }
-        
-        .progress-text {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .countdown-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            display: inline-block;
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.03) 50%,
+                transparent 70%
+            );
+            animation: shine 8s infinite linear;
+            z-index: -1;
         }
-        
-        .countdown-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #bb86fc;
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
-        
-        .countdown {
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #8a2387, #e94057, #f27121);
             display: flex;
             justify-content: center;
-            gap: 15px;
+            align-items: center;
         }
-        
-        .countdown-item {
+
+        .profile-img i {
+            font-size: 60px;
+            color: white;
+        }
+
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .marquee-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .marquee {
+            font-size: 15px;
+            font-weight: 500;
+            white-space: nowrap;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee i {
+            margin-right: 10px;
+            color: #f27121;
+        }
+
+        .links-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .links-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #e94057, transparent);
+        }
+
+        .links {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px;
         }
-        
-        .countdown-value {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background-color: rgba(187, 134, 252, 0.2);
-            width: 80px;
-            height: 80px;
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin-bottom: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .contact-info {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 15px;
-            color: #bb86fc;
-        }
-        
-        .contact-details {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            padding: 12px 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            background-color: rgba(187, 134, 252, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        .contact-icon {
-            color: #bb86fc;
-            font-size: 1.2rem;
-        }
-        
-        .telegram-link {
-            color: #bb86fc;
             text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
+        }
+
+        .link-item:hover::before {
+            left: 100%;
+        }
+
+        .link-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .link-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            font-size: 22px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .instagram .link-icon {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .sociabuzz .link-icon {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+        }
+
+        .channel .link-icon {
+            background: linear-gradient(45deg, #1DB954, #1ED760);
+        }
+
+        .link-text {
+            flex-grow: 1;
+        }
+
+        .link-name {
             font-weight: 600;
+            font-size: 17px;
+            margin-bottom: 4px;
         }
-        
-        .telegram-link:hover {
-            text-decoration: underline;
+
+        .link-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
         }
-        
-        .update-info {
-            margin-top: 30px;
-            font-style: italic;
-            opacity: 0.8;
-            font-size: 0.9rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 8px;
-            display: inline-block;
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .maintenance-container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .maintenance-icon {
-                font-size: 80px;
-            }
-            
-            .countdown-value {
-                font-size: 1.8rem;
-                width: 65px;
-                height: 65px;
-            }
-            
-            .countdown {
-                gap: 10px;
-            }
-            
-            .contact-details {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
+
+        .pulse {
+            animation: pulse 2s infinite;
         }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 20px;
             }
             
-            .subtitle {
-                font-size: 1rem;
+            .name {
+                font-size: 28px;
             }
             
-            .maintenance-icon {
-                font-size: 60px;
+            .profile-img {
+                width: 110px;
+                height: 110px;
             }
             
-            .countdown {
-                flex-wrap: wrap;
+            .profile-img i {
+                font-size: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="logo">
-            <i class="fas fa-cogs"></i>
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h1 class="name">FAJRUSH</h1>
+            <p class="title">Official Website & Social Media Links</p>
         </div>
-        
-        <h1>Website <span class="highlight">Sedang Dalam</span> Perbaikan</h1>
-        
-        <p class="subtitle">
-            Kami sedang melakukan pemeliharaan untuk memberikan pengalaman yang lebih baik. 
-            Mohon maaf atas ketidaknyamanan ini. Kami akan segera kembali!
-        </p>
-        
-        <div class="maintenance-icon">
-            <i class="fas fa-tools"></i>
-        </div>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-        
-        <div class="progress-text">
-            <span>Progress</span>
-            <span>65%</span>
-        </div>
-        
-        <div class="countdown-container">
-            <div class="countdown-title">Perkiraan Waktu Selesai:</div>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="days">01</div>
-                    <div class="countdown-label">Hari</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="hours">03</div>
-                    <div class="countdown-label">Jam</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="minutes">30</div>
-                    <div class="countdown-label">Menit</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="seconds">20</div>
-                    <div class="countdown-label">Detik</div>
-                </div>
+
+        <div class="marquee-container">
+            <div class="marquee" id="marquee">
+                <i class="fas fa-bullhorn"></i>
+                <span>SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA</span>
             </div>
         </div>
-        
-        <div class="contact-info">
-            <h3>Hubungi Kami</h3>
-            <p>Jika Anda membutuhkan bantuan segera, silakan hubungi kami melalui:</p>
-            
-            <div class="contact-details">
-                <div class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <span>fajrushbusiness.id@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-telegram contact-icon"></i>
-                    <span>Telegram: <a href="https://t.me/fajrush33" class="telegram-link" target="_blank">t.me/fajrush33</a></span>
-                </div>
-            </div>
+
+        <div class="links-title pulse">
+            <i class="fas fa-hand-point-down"></i> IKUTI KAMI DI SINI
         </div>
-        
-        <div class="update-info">
-            <p>Terakhir diperbarui: 1 Januari 2026</p>
+
+        <div class="links">
+            <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-item instagram">
+                <div class="link-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="link-text">
+                    <div class="link-name">Instagram</div>
+                    <div class="link-desc">@fajrush33</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+
+            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="link-item sociabuzz">
+                <div class="link-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="link-text">
+                    <div class="link-name">Social Buzz</div>
+                    <div class="link-desc">fajrush/tribe</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+
+            <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15" target="_blank" class="link-item channel">
+                <div class="link-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <div class="link-text">
+                    <div class="link-name">CHANNEL ORANG GABUT</div>
+                    <div class="link-desc">Konten Seru & Menghibur</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 Fajrush Official. All rights reserved.</p>
+            <p style="margin-top: 5px;">Stay connected for more updates!</p>
         </div>
     </div>
 
     <script>
-        // Countdown Timer dengan penyimpanan localStorage
-        let countdownInterval;
+        // Animasi teks berjalan
+        const marquee = document.getElementById('marquee');
+        const marqueeText = marquee.querySelector('span');
+        const containerWidth = document.querySelector('.marquee-container').offsetWidth;
         
-        // Cek apakah waktu sudah disimpan di localStorage
-        function getStoredEndTime() {
-            const storedTime = localStorage.getItem('maintenanceEndTime');
-            if (storedTime) {
-                const endTime = parseInt(storedTime);
-                const now = new Date().getTime();
-                
-                // Jika waktu yang disimpan masih valid (masih di masa depan)
-                if (endTime > now) {
-                    return endTime;
-                }
+        // Duplikasi teks untuk efek berjalan yang mulus
+        marqueeText.innerHTML += ' ' + marqueeText.innerHTML;
+        
+        // Atur kecepatan animasi berdasarkan panjang teks
+        const textWidth = marqueeText.offsetWidth / 2;
+        const duration = textWidth / 30; // 30px per detik
+        
+        marquee.style.animation = `marquee ${duration}s linear infinite`;
+        
+        // Tambahkan keyframes untuk animasi marquee
+        const styleSheet = document.createElement('style');
+        styleSheet.innerHTML = `
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-${textWidth}px); }
             }
-            
-            // Jika tidak ada waktu yang disimpan atau sudah expired, buat yang baru
-            const newEndTime = new Date().getTime() + 
-                (1 * 24 * 60 * 60 * 1000) + // 1 hari
-                (3 * 60 * 60 * 1000) +      // 3 jam
-                (30 * 60 * 1000) +          // 30 menit
-                (20 * 1000);                // 20 detik
-            
-            localStorage.setItem('maintenanceEndTime', newEndTime.toString());
-            return newEndTime;
-        }
+        `;
+        document.head.appendChild(styleSheet);
         
-        function startCountdown() {
-            const endTime = getStoredEndTime();
+        // Efek interaktif pada link
+        document.querySelectorAll('.link-item').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
             
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = endTime - now;
-                
-                if (distance < 0) {
-                    // Jika waktu sudah habis, buat waktu baru
-                    const newEndTime = new Date().getTime() + 
-                        (1 * 24 * 60 * 60 * 1000) + // 1 hari
-                        (3 * 60 * 60 * 1000) +      // 3 jam
-                        (30 * 60 * 1000) +          // 30 menit
-                        (20 * 1000);                // 20 detik
-                    
-                    localStorage.setItem('maintenanceEndTime', newEndTime.toString());
-                    updateCountdownWithTime(newEndTime);
-                    return;
-                }
-                
-                updateCountdownWithTime(endTime);
-            }
-            
-            function updateCountdownWithTime(targetTime) {
-                const now = new Date().getTime();
-                const distance = targetTime - now;
-                
-                // Hitung hari, jam, menit, detik
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Tampilkan hasil
-                document.getElementById("days").textContent = days.toString().padStart(2, '0');
-                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-            }
-            
-            // Update setiap detik
-            clearInterval(countdownInterval);
-            countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown(); // Panggil segera untuk inisialisasi
-        }
-        
-        // Mulai countdown saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', startCountdown);
-        
-        // Animate progress bar
-        const progressBar = document.querySelector('.progress-bar');
-        const progressText = document.querySelector('.progress-text span:last-child');
-        let progress = 65;
-        
-        function animateProgressBar() {
-            // Simulasi progress acak
-            const increment = Math.random() * 0.5;
-            progress = Math.min(progress + increment, 100);
-            
-            progressBar.style.width = progress.toFixed(1) + '%';
-            progressText.textContent = progress.toFixed(1) + '%';
-            
-            // Reset progress jika mencapai 100%
-            if (progress >= 100) {
-                setTimeout(() => {
-                    progress = 65;
-                    progressBar.style.width = progress + '%';
-                    progressText.textContent = progress + '%';
-                }, 3000);
-            }
-        }
-        
-        // Update progress setiap 5 detik
-        setInterval(animateProgressBar, 5000);
-        
-        // Bersihkan localStorage jika halaman di-refresh dengan force refresh (Ctrl+F5)
-        window.addEventListener('beforeunload', function() {
-            // Hanya bersihkan jika user melakukan force refresh
-            if (performance.navigation && performance.navigation.type === 1) {
-                // Do nothing - biarkan waktu tetap tersimpan
-            }
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 </body>
