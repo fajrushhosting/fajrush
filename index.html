@@ -3,411 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sedang Dalam Perbaikan</title>
+    <title>Website Resmi Fajrush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset CSS */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        
-        .maintenance-container {
-            max-width: 900px;
+
+        /* Container utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            position: fixed;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-out;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #334155;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .logo {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #bb86fc;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .highlight {
-            color: #bb86fc;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-        
-        .maintenance-icon {
-            font-size: 100px;
-            color: #bb86fc;
-            margin: 30px 0;
-            animation: bounce 2s infinite alternate;
-        }
-        
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-15px); }
-        }
-        
-        .progress-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            height: 25px;
-            margin: 40px 0;
-            overflow: hidden;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #bb86fc 0%, #3700b3 100%);
-            width: 65%;
-            border-radius: 50px;
-            position: relative;
-            animation: progressAnimation 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes progressAnimation {
-            0% { width: 65%; }
-            100% { width: 68%; }
-        }
-        
-        .progress-text {
+
+        nav {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            align-items: center;
         }
-        
-        .countdown-container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            display: inline-block;
-        }
-        
-        .countdown-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #bb86fc;
-        }
-        
-        .countdown {
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #60a5fa;
+            text-decoration: none;
             display: flex;
-            justify-content: center;
-            gap: 15px;
+            align-items: center;
         }
-        
-        .countdown-item {
+
+        .logo i {
+            margin-right: 10px;
+            color: #3b82f6;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Jumbotron Section */
+        .jumbotron {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .countdown-value {
+
+        .jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .jumbotron-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        /* Marquee Container */
+        .marquee-container {
+            width: 100%;
+            background: linear-gradient(90deg, #1e293b, #334155);
+            padding: 20px 0;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #475569;
+        }
+
+        .marquee {
             font-size: 2.2rem;
             font-weight: 700;
-            background-color: rgba(187, 134, 252, 0.2);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin-bottom: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: #fbbf24;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
         }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
-        
-        .contact-info {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+        /* Social Links Section */
+        .social-section {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #475569;
         }
-        
-        .contact-info h3 {
-            margin-bottom: 15px;
-            color: #bb86fc;
+
+        .social-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #cbd5e1;
         }
-        
-        .contact-details {
+
+        .social-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
         }
-        
-        .contact-item {
+
+        .social-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            padding: 12px 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            background-color: rgba(187, 134, 252, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        .contact-icon {
-            color: #bb86fc;
-            font-size: 1.2rem;
-        }
-        
-        .telegram-link {
-            color: #bb86fc;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            padding: 25px 30px;
+            border-radius: 12px;
             text-decoration: none;
+            color: #f1f5f9;
+            width: 200px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #475569;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #60a5fa;
+        }
+
+        .social-card i {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .instagram i {
+            color: #e4405f;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .sociabuzz i {
+            color: #8b5cf6;
+        }
+
+        .social-card span {
+            font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 10px;
         }
-        
-        .telegram-link:hover {
-            text-decoration: underline;
-        }
-        
-        .update-info {
-            margin-top: 30px;
-            font-style: italic;
-            opacity: 0.8;
+
+        .social-card p {
             font-size: 0.9rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 8px;
-            display: inline-block;
+            color: #94a3b8;
+            text-align: center;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .maintenance-container {
-                padding: 30px 20px;
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
+        }
+
+        .copyright {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3.5rem;
             }
             
+            .marquee {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .marquee {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
             h1 {
                 font-size: 2.2rem;
             }
             
-            .subtitle {
-                font-size: 1.1rem;
+            .marquee-container {
+                padding: 15px 0;
             }
             
-            .maintenance-icon {
-                font-size: 80px;
+            .marquee {
+                font-size: 1.3rem;
             }
             
-            .countdown-value {
-                font-size: 1.8rem;
-                width: 65px;
-                height: 65px;
-            }
-            
-            .countdown {
-                gap: 10px;
-            }
-            
-            .contact-details {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
+            .jumbotron {
+                padding: 80px 15px 30px;
             }
         }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
+
+        /* Animasi tambahan */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            
-            .subtitle {
-                font-size: 1rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            
-            .maintenance-icon {
-                font-size: 60px;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
+        }
+
+        .jumbotron-content > * {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .jumbotron-content h1 {
+            animation-delay: 0.2s;
+        }
+
+        .jumbotron-content .tagline {
+            animation-delay: 0.4s;
+        }
+
+        .marquee-container {
+            animation-delay: 0.6s;
+        }
+
+        .social-section {
+            animation-delay: 0.8s;
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="logo">
-            <i class="fas fa-cogs"></i>
+    <!-- Header dengan Navigasi -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-rocket"></i>
+                    FAJRUSH
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Tentang</a></li>
+                    <li><a href="#"><i class="fas fa-photo-video"></i> Konten</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Kontak</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <h1>Website <span class="highlight">Sedang Dalam</span> Perbaikan</h1>
-        
-        <p class="subtitle">
-            Kami sedang melakukan pemeliharaan untuk memberikan pengalaman yang lebih baik. 
-            Mohon maaf atas ketidaknyamanan ini. Kami akan segera kembali!
-        </p>
-        
-        <div class="maintenance-icon">
-            <i class="fas fa-tools"></i>
-        </div>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-        
-        <div class="progress-text">
-            <span>Progress</span>
-            <span>65%</span>
-        </div>
-        
-        <div class="countdown-container">
-            <div class="countdown-title">Perkiraan Waktu Selesai:</div>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="days">01</div>
-                    <div class="countdown-label">Hari</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="hours">03</div>
-                    <div class="countdown-label">Jam</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="minutes">30</div>
-                    <div class="countdown-label">Menit</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="seconds">20</div>
-                    <div class="countdown-label">Detik</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="contact-info">
-            <h3>Hubungi Kami</h3>
-            <p>Jika Anda membutuhkan bantuan segera, silakan hubungi kami melalui:</p>
-            
-            <div class="contact-details">
-                <div class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <span>fajrushbusiness.id@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-telegram contact-icon"></i>
-                    <span>Telegram: <a href="https://t.me/fajrush33" class="telegram-link" target="_blank">t.me/fajrush33</a></span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="update-info">
-            <p>Terakhir diperbarui: 1 Januari 2026</p>
-        </div>
-    </div>
+    </header>
 
+    <!-- Jumbotron Section -->
+    <section class="jumbotron">
+        <div class="jumbotron-content">
+            <h1>FAJRUSH OFFICIAL</h1>
+            <p class="tagline">Platform digital resmi untuk konten kreatif, informasi terbaru, dan interaksi dengan komunitas Fajrush.</p>
+            
+            <!-- Teks Berjalan -->
+            <div class="marquee-container">
+                <div class="marquee">
+                    ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 🚀 TERIMA KASIH ATAS KUNJUNGAN ANDA 🚀 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 🌟 JANGAN LUPA SUBSCRIBE DAN FOLLOW 🌟
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-section">
+                <h2 class="social-title">Temukan Saya di Platform Lain</h2>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="social-card instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                        <p>Follow untuk konten harian dan update terbaru</p>
+                    </a>
+                    
+                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="social-card sociabuzz">
+                        <i class="fas fa-users"></i>
+                        <span>Social Buzz</span>
+                        <p>Bergabung dengan tribe untuk dukungan eksklusif</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2023 Website Resmi Fajrush. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Efek animasi teks berjalan pada hover -->
     <script>
-        // Countdown Timer - SIMPLE FIX
-        let countdownInterval;
-        
-        function startCountdown() {
-            // Set waktu target: 1 hari, 3 jam, 30 menit, 20 detik dari sekarang
-            const targetTime = new Date().getTime() + 
-                (1 * 24 * 60 * 60 * 1000) + // 1 hari
-                (3 * 60 * 60 * 1000) +      // 3 jam
-                (30 * 60 * 1000) +          // 30 menit
-                (20 * 1000);                // 20 detik
+        // Menambahkan efek interaktif pada teks berjalan
+        document.addEventListener('DOMContentLoaded', function() {
+            const marquee = document.querySelector('.marquee');
             
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = targetTime - now;
+            marquee.addEventListener('mouseover', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.color = '#fde047';
+            });
+            
+            marquee.addEventListener('mouseout', function() {
+                this.style.animationPlayState = 'running';
+                this.style.color = '#fbbf24';
+            });
+            
+            // Efek hover untuk semua kartu sosial
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'scale(1.2)';
+                });
                 
-                if (distance < 0) {
-                    // Jika waktu sudah habis, reset ke awal
-                    clearInterval(countdownInterval);
-                    startCountdown(); // Restart countdown
-                    return;
-                }
-                
-                // Hitung hari, jam, menit, detik
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Tampilkan hasil
-                document.getElementById("days").textContent = days.toString().padStart(2, '0');
-                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-            }
-            
-            // Update setiap detik
-            clearInterval(countdownInterval);
-            countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown(); // Panggil segera untuk inisialisasi
-        }
-        
-        // Mulai countdown saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', startCountdown);
-        
-        // Animate progress bar
-        const progressBar = document.querySelector('.progress-bar');
-        const progressText = document.querySelector('.progress-text span:last-child');
-        let progress = 65;
-        
-        function animateProgressBar() {
-            // Simulasi progress acak
-            const increment = Math.random() * 0.5;
-            progress = Math.min(progress + increment, 100);
-            
-            progressBar.style.width = progress.toFixed(1) + '%';
-            progressText.textContent = progress.toFixed(1) + '%';
-            
-            // Reset progress jika mencapai 100%
-            if (progress >= 100) {
-                setTimeout(() => {
-                    progress = 65;
-                    progressBar.style.width = progress + '%';
-                    progressText.textContent = progress + '%';
-                }, 3000);
-            }
-        }
-        
-        // Update progress setiap 5 detik
-        setInterval(animateProgressBar, 5000);
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+        });
     </script>
 </body>
 </html>
