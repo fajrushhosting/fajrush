@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fajrush Official - Linktree</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <title>Website Sedang Dalam Perbaikan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 20%, #4a69bd 100%);
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -27,7 +25,8 @@
             position: relative;
             overflow-x: hidden;
         }
-
+        
+        /* Background animation */
         body::before {
             content: '';
             position: absolute;
@@ -37,350 +36,735 @@
             height: 100%;
             background: 
                 radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 80% 70%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
             z-index: -1;
         }
-
-        .container {
+        
+        .maintenance-container {
+            max-width: 1000px;
             width: 100%;
-            max-width: 480px;
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: fadeInUp 0.8s ease-out;
             position: relative;
             overflow: hidden;
         }
-
-        .container::before {
+        
+        .maintenance-container::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.03) 50%,
-                transparent 70%
-            );
-            animation: shine 8s infinite linear;
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe, #6c5ce7);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
         }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(45deg, #8a2387, #e94057, #f27121);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-img i {
-            font-size: 60px;
-            color: white;
-        }
-
-        .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .title {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 300;
+        
+        .logo-container {
             margin-bottom: 25px;
+            position: relative;
         }
-
-        .marquee-container {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 30px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        .logo {
+            font-size: 60px;
+            color: #a29bfe;
+            display: inline-block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: rotate 20s infinite linear;
         }
-
-        .marquee {
-            font-size: 15px;
-            font-weight: 500;
-            white-space: nowrap;
-            color: #ffcc00;
-            display: flex;
-            align-items: center;
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-
-        .marquee i {
-            margin-right: 10px;
-            color: #f27121;
-        }
-
-        .links-title {
-            text-align: center;
-            font-size: 20px;
+        
+        .logo-badge {
+            position: absolute;
+            top: -10px;
+            right: 25%;
+            background: #ff7675;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(255, 118, 117, 0.4);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            color: #a29bfe;
+            font-weight: 700;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
-
-        .links-title::after {
+        
+        .highlight::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(to right, transparent, #e94057, transparent);
+            background: linear-gradient(90deg, #a29bfe, #6c5ce7);
+            border-radius: 2px;
         }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 30px;
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .link-item {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s ease;
+        
+        .maintenance-icon {
+            font-size: 120px;
+            color: #a29bfe;
+            margin: 40px 0;
+            animation: float 3s infinite ease-in-out;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .progress-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px 0;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
         }
-
-        .link-item::before {
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .progress-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            height: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #a29bfe 0%, #6c5ce7 50%, #4834d4 100%);
+            width: 65%;
+            border-radius: 50px;
+            position: relative;
+            animation: progressAnimation 2s infinite alternate;
+            box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+        }
+        
+        .progress-bar::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.7s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 2s infinite;
         }
-
-        .link-item:hover::before {
-            left: 100%;
+        
+        @keyframes progressAnimation {
+            0% { width: 65%; }
+            100% { width: 68%; }
         }
-
-        .link-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
-
-        .link-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-title {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #a29bfe;
+            font-weight: 600;
+        }
+        
+        .countdown {
             display: flex;
             justify-content: center;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-right: 16px;
-            font-size: 22px;
-            background: rgba(0, 0, 0, 0.2);
         }
-
-        .instagram .link-icon {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        
+        .countdown-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: rgba(162, 155, 254, 0.15);
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
-
-        .sociabuzz .link-icon {
-            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+        
+        .countdown-value::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
         }
-
-        .channel .link-icon {
-            background: linear-gradient(45deg, #1DB954, #1ED760);
+        
+        .countdown-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
-
-        .link-text {
-            flex-grow: 1;
-        }
-
-        .link-name {
-            font-weight: 600;
-            font-size: 17px;
-            margin-bottom: 4px;
-        }
-
-        .link-desc {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 20px;
-            padding-top: 20px;
+        
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .pulse {
-            animation: pulse 2s infinite;
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #a29bfe;
+            font-size: 1.8rem;
+            font-weight: 600;
         }
-
+        
+        .contact-info p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            padding: 18px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 300px;
+        }
+        
+        .contact-item:hover {
+            background: rgba(162, 155, 254, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-icon {
+            color: #a29bfe;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+        
+        .contact-text {
+            text-align: left;
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+        
+        .contact-value {
+            font-weight: 500;
+        }
+        
+        .telegram-link {
+            color: #a29bfe;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-link:hover {
+            color: #6c5ce7;
+            text-decoration: underline;
+        }
+        
+        .update-info {
+            margin-top: 40px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timer-status {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #a29bfe;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00b894;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+        
         @keyframes pulse {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px 20px;
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .maintenance-container {
+                padding: 40px 30px;
             }
             
-            .name {
-                font-size: 28px;
+            h1 {
+                font-size: 2.8rem;
             }
             
-            .profile-img {
-                width: 110px;
-                height: 110px;
+            .countdown-value {
+                width: 90px;
+                height: 90px;
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 35px 25px;
+                border-radius: 20px;
             }
             
-            .profile-img i {
-                font-size: 50px;
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .maintenance-icon {
+                font-size: 90px;
+            }
+            
+            .countdown {
+                gap: 15px;
+            }
+            
+            .countdown-value {
+                width: 75px;
+                height: 75px;
+                font-size: 2rem;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            
+            .contact-item {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .maintenance-icon {
+                font-size: 70px;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .countdown-value {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 45px;
+                padding: 15px;
+            }
+            
+            .logo-badge {
+                font-size: 12px;
+                padding: 4px 12px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="profile-img">
-                <i class="fas fa-user-circle"></i>
+    <div class="maintenance-container">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-cogs"></i>
             </div>
-            <h1 class="name">FAJRUSH</h1>
-            <p class="title">Official Website & Social Media Links</p>
+            <div class="logo-badge">MAINTENANCE</div>
         </div>
-
-        <div class="marquee-container">
-            <div class="marquee" id="marquee">
-                <i class="fas fa-bullhorn"></i>
-                <span>SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA</span>
+        
+        <h1>Website <span class="highlight">Sedang Dalam</span> Perbaikan</h1>
+        
+        <p class="subtitle">
+            Kami sedang melakukan pemeliharaan dan peningkatan sistem selama <strong>1 hari penuh</strong>. 
+            Mohon maaf atas ketidaknyamanan ini. Kami akan kembali dengan performa yang lebih optimal!
+        </p>
+        
+        <div class="maintenance-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+        
+        <div class="progress-section">
+            <div class="progress-header">
+                <span>Status Perbaikan</span>
+                <span id="progress-percent">65%</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="progress-text">
+                <span>Memperbarui sistem dan database...</span>
+                <span id="progress-text">65% Selesai</span>
             </div>
         </div>
-
-        <div class="links-title pulse">
-            <i class="fas fa-hand-point-down"></i> IKUTI SAYA DI SINI
+        
+        <div class="countdown-container">
+            <div class="countdown-title">Website akan aktif kembali dalam:</div>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">01</div>
+                    <div class="countdown-label">HARI</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">JAM</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">MENIT</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">DETIK</div>
+                </div>
+            </div>
+            <div class="timer-status" id="timer-status">
+                <span class="status-indicator"></span>
+                Timer aktif - Tidak reset saat refresh halaman
+            </div>
         </div>
-
-        <div class="links">
-            <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-item instagram">
-                <div class="link-icon">
-                    <i class="fab fa-instagram"></i>
+        
+        <div class="contact-info">
+            <h3>Butuh Bantuan?</h3>
+            <p>Jika Anda memiliki pertanyaan mendesak selama masa maintenance, silakan hubungi kami:</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">fajrushbusiness.id@gmail.com</div>
+                    </div>
                 </div>
-                <div class="link-text">
-                    <div class="link-name">Instagram</div>
-                    <div class="link-desc">follow Instagram saya agar mendapatkan update dari saya</div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="contact-text">
+                        <div class="contact-label">Telegram</div>
+                        <div class="contact-value">
+                            <a href="https://t.me/fajrush33" class="telegram-link" target="_blank">t.me/fajrush33</a>
+                        </div>
+                    </div>
                 </div>
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-
-            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="link-item sociabuzz">
-                <div class="link-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="link-text">
-                    <div class="link-name">Social Buzz</div>
-                    <div class="link-desc">berikan dukungan untuk saya dengan cara donasi, agar saya selalu semangat</div>
-                </div>
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-
-            <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15" target="_blank" class="link-item channel">
-                <div class="link-icon">
-                    <i class="fas fa-tv"></i>
-                </div>
-                <div class="link-text">
-                    <div class="link-name">CHANNEL ORANG GABUT</div>
-                    <div class="link-desc">Konten Seru & Menghibur</div>
-                </div>
-                <i class="fas fa-external-link-alt"></i>
-            </a>
+            </div>
         </div>
-
-        <div class="footer">
-            <p>&copy; 2026 Fajrush. All rights reserved.</p>
-            <p style="margin-top: 5px;">Stay connected for more updates!</p>
+        
+        <div class="update-info">
+            <p>Terakhir diperbarui: 1 Januari 2026 | <span id="last-update-time">Loading...</span></p>
         </div>
     </div>
 
     <script>
-        // Animasi teks berjalan
-        const marquee = document.getElementById('marquee');
-        const marqueeText = marquee.querySelector('span');
-        const containerWidth = document.querySelector('.marquee-container').offsetWidth;
+        // Timer 1 Hari dengan localStorage untuk konsistensi
+        let countdownInterval;
         
-        // Duplikasi teks untuk efek berjalan yang mulus
-        marqueeText.innerHTML += ' ' + marqueeText.innerHTML;
-        
-        // Atur kecepatan animasi berdasarkan panjang teks
-        const textWidth = marqueeText.offsetWidth / 2;
-        const duration = textWidth / 30; // 30px per detik
-        
-        marquee.style.animation = `marquee ${duration}s linear infinite`;
-        
-        // Tambahkan keyframes untuk animasi marquee
-        const styleSheet = document.createElement('style');
-        styleSheet.innerHTML = `
-            @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-${textWidth}px); }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-        
-        // Efek interaktif pada link
-        document.querySelectorAll('.link-item').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
+        // Fungsi untuk mendapatkan atau membuat waktu akhir (1 hari dari sekarang)
+        function getOrCreateEndTime() {
+            // Coba ambil dari localStorage (bertahan meskipun browser ditutup)
+            let endTime = localStorage.getItem('maintenanceEndTime');
             
-            link.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            if (!endTime) {
+                // Jika tidak ada, buat waktu baru: 1 hari dari sekarang
+                endTime = Date.now() + (24 * 60 * 60 * 1000); // 1 hari
+                
+                // Simpan ke localStorage
+                localStorage.setItem('maintenanceEndTime', endTime);
+                console.log('Waktu baru dibuat:', new Date(parseInt(endTime)).toLocaleString());
+            } else {
+                endTime = parseInt(endTime);
+                
+                // Jika waktu sudah lewat lebih dari 5 menit, buat yang baru
+                const timePassed = Date.now() - endTime;
+                if (timePassed > 5 * 60 * 1000) { // 5 menit
+                    endTime = Date.now() + (24 * 60 * 60 * 1000); // 1 hari
+                    localStorage.setItem('maintenanceEndTime', endTime);
+                    console.log('Waktu diperbarui:', new Date(parseInt(endTime)).toLocaleString());
+                }
+            }
+            
+            return endTime;
+        }
+        
+        // Fungsi untuk memulai countdown 1 hari
+        function startCountdown() {
+            let endTime = getOrCreateEndTime();
+            
+            // Update waktu terakhir
+            updateLastUpdateTime();
+            
+            function updateCountdown() {
+                const now = Date.now();
+                const distance = endTime - now;
+                
+                // Jika waktu sudah habis
+                if (distance < 0) {
+                    // Tampilkan pesan selesai
+                    document.getElementById("days").textContent = "00";
+                    document.getElementById("hours").textContent = "00";
+                    document.getElementById("minutes").textContent = "00";
+                    document.getElementById("seconds").textContent = "00";
+                    
+                    document.getElementById('timer-status').innerHTML = 
+                        '<span class="status-indicator" style="background:#00b894;"></span> Maintenance selesai! Website sudah aktif kembali.';
+                    
+                    // Ubah progress ke 100%
+                    document.getElementById('progress-percent').textContent = "100%";
+                    document.getElementById('progress-text').textContent = "100% Selesai";
+                    document.querySelector('.progress-bar').style.width = "100%";
+                    
+                    clearInterval(countdownInterval);
+                    return;
+                }
+                
+                // Hitung hari, jam, menit, detik
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Tampilkan hasil
+                document.getElementById("days").textContent = days.toString().padStart(2, '0');
+                document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+                
+                // Update status berdasarkan waktu tersisa
+                updateTimerStatus(distance);
+                
+                // Update progress berdasarkan waktu yang sudah berlalu
+                updateProgress(distance);
+            }
+            
+            // Update setiap detik
+            clearInterval(countdownInterval);
+            countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Panggil segera untuk inisialisasi
+        }
+        
+        // Fungsi untuk update status timer
+        function updateTimerStatus(distance) {
+            const statusElement = document.getElementById('timer-status');
+            const totalOneDay = 24 * 60 * 60 * 1000;
+            const timePassed = totalOneDay - distance;
+            const percentPassed = (timePassed / totalOneDay) * 100;
+            
+            if (percentPassed < 25) {
+                statusElement.innerHTML = '<span class="status-indicator"></span> Maintenance baru dimulai';
+                statusElement.style.color = "#00b894";
+            } else if (percentPassed < 50) {
+                statusElement.innerHTML = '<span class="status-indicator"></span> Sedang berjalan - Tidak reset saat refresh';
+                statusElement.style.color = "#a29bfe";
+            } else if (percentPassed < 75) {
+                statusElement.innerHTML = '<span class="status-indicator"></span> Setengah jalan - Timer konsisten';
+                statusElement.style.color = "#fdcb6e";
+            } else if (percentPassed < 95) {
+                statusElement.innerHTML = '<span class="status-indicator"></span> Hampir selesai - Tetap lanjut';
+                statusElement.style.color = "#ff7675";
+            } else {
+                statusElement.innerHTML = '<span class="status-indicator"></span> Maintenance hampir selesai!';
+                statusElement.style.color = "#e84393";
+            }
+        }
+        
+        // Fungsi untuk update progress otomatis
+        function updateProgress(distance) {
+            const totalOneDay = 24 * 60 * 60 * 1000;
+            const timePassed = totalOneDay - distance;
+            const percentPassed = Math.min(99, (timePassed / totalOneDay) * 100);
+            
+            // Progress mulai dari 5% (tidak dari 0%)
+            const displayProgress = 5 + (percentPassed * 0.95);
+            
+            document.getElementById('progress-percent').textContent = displayProgress.toFixed(1) + "%";
+            document.getElementById('progress-text').textContent = displayProgress.toFixed(1) + "% Selesai";
+            document.querySelector('.progress-bar').style.width = displayProgress.toFixed(1) + "%";
+        }
+        
+        // Fungsi untuk update waktu terakhir
+        function updateLastUpdateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('id-ID', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
             });
+            document.getElementById('last-update-time').textContent = timeString;
+        }
+        
+        // Mulai countdown saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', startCountdown);
+        
+        // Update waktu terakhir saat kembali ke tab
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                updateLastUpdateTime();
+            }
+        });
+        
+        // Simulasikan progress bar yang sedikit berfluktuasi
+        setInterval(() => {
+            const progressBar = document.querySelector('.progress-bar');
+            const currentWidth = parseFloat(progressBar.style.width);
+            
+            // Tambah variasi kecil (±0.5%)
+            const variation = (Math.random() - 0.5) * 0.5;
+            const newWidth = Math.max(5, Math.min(100, currentWidth + variation));
+            
+            progressBar.style.width = newWidth.toFixed(1) + "%";
+        }, 5000);
+        
+        // Reset timer hanya jika benar-benar diperlukan (force refresh dengan Ctrl+F5)
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'F5') {
+                localStorage.removeItem('maintenanceEndTime');
+                console.log('Timer direset karena force refresh');
+            }
         });
     </script>
 </body>
