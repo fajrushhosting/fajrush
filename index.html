@@ -3,281 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fajrush - Website Resmi</title>
+    <title>Website Resmi Fajrush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
-        /* Marquee Teks Berjalan di Paling Atas */
-        .top-marquee {
-            background: rgba(30, 41, 59, 0.9);
-            padding: 12px 0;
-            border-bottom: 2px solid #6366f1;
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .top-marquee-content {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #60a5fa;
-            white-space: nowrap;
-            animation: marquee 25s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
+        
+        /* Header */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 0;
+            position: relative;
         }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
-
+        
         .tagline {
             font-size: 1.2rem;
-            color: #cbd5e1;
+            color: #a3d5ff;
             margin-bottom: 30px;
         }
-
-        /* Profile Section */
-        .profile {
+        
+        /* Marquee text berjalan */
+        .marquee-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .marquee-text {
+            font-size: 1.3rem;
+            color: #00ffea;
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 10px 0;
+        }
+        
+        /* Section Follow */
+        .follow-section {
             text-align: center;
-            margin: 40px auto;
-            max-width: 600px;
-        }
-
-        .profile h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* Links Section */
-        .links-section {
             margin: 40px 0;
         }
-
+        
         .section-title {
-            font-size: 1.8rem;
-            text-align: center;
+            font-size: 2rem;
             margin-bottom: 30px;
-            color: #60a5fa;
+            color: #00d2ff;
             position: relative;
             display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
-
-        .section-title::after {
+        
+        .section-title:after {
             content: '';
             position: absolute;
             width: 60%;
             height: 3px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
-            bottom: -10px;
+            background: linear-gradient(to right, transparent, #00d2ff, transparent);
+            bottom: -8px;
             left: 20%;
         }
-
-        .links-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
             margin-top: 30px;
         }
-
-        .link-card {
-            background: rgba(30, 41, 59, 0.9);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
+        
+        .social-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            width: 220px;
             transition: all 0.3s ease;
-            border: 1px solid #334155;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
-
-        .link-card:hover {
+        
+        .social-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
-            border-color: #6366f1;
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+            border-color: #00d2ff;
         }
-
-        .link-icon {
+        
+        .social-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
-
-        .instagram { color: #e4405f; }
-        .sociabuzz { color: #3b82f6; }
-        .channel { color: #f59e0b; }
+        
+        .instagram { color: #E1306C; }
+        .sociabuzz { color: #FFD700; }
+        .channel { color: #1DA1F2; }
         .tiktok { color: #000000; }
-        .linktree { color: #10b981; }
-
-        .link-title {
-            font-size: 1.5rem;
+        .linktree { color: #39E09B; }
+        
+        .social-name {
+            font-size: 1.2rem;
             margin-bottom: 10px;
-            color: #f8fafc;
+            color: #fff;
         }
-
-        .link-description {
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+        
+        .social-desc {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            min-height: 40px;
         }
-
-        .btn {
+        
+        .btn-follow {
             display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
+            background: linear-gradient(to right, #3a7bd5, #00d2ff);
             color: white;
-            text-decoration: none;
+            padding: 10px 20px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.6);
+        
+        .btn-follow:hover {
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
         }
-
-        /* Follow Section */
-        .follow-section {
+        
+        /* Rekomendasi Barang */
+        .recommendation {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 50px 0;
             text-align: center;
-            margin: 60px 0;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
-
-        .follow-title {
+        
+        .recommendation h3 {
             font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #60a5fa;
+            color: #FFD700;
+            margin-bottom: 15px;
         }
-
+        
+        .recommendation p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
             padding: 30px 0;
-            margin-top: 40px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
             font-size: 0.9rem;
         }
-
-        /* Responsive Design */
+        
+        /* Animasi */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: slideIn 0.8s ease forwards;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .top-marquee-content {
-                font-size: 1rem;
-            }
-            
-            .logo {
-                font-size: 2.5rem;
-            }
-            
-            .profile h1 {
-                font-size: 2rem;
-            }
-            
-            .links-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .link-card {
-                padding: 20px;
-            }
+            h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1rem; }
+            .social-card { width: 100%; max-width: 300px; }
+            .marquee-text { font-size: 1.1rem; }
+        }
+        
+        /* Efek Partikel */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
+    <!-- Partikel Latar Belakang -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
-        <!-- Teks Berjalan di Paling Atas -->
-        <div class="top-marquee">
-            <div class="top-marquee-content">
-                ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA ✨ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA ✨
-            </div>
-        </div>
-
-        <!-- Header -->
-        <header>
-            <div class="logo">FAJRUSH</div>
-            <div class="tagline">Kreator Konten & Penggemar Barang Murah Meriah</div>
-        </header>
-
-        <!-- Profile Section -->
-        <section class="profile">
+        <header class="animated">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Profil Fajrush" class="profile-img">
             <h1>Fajrush</h1>
-            <!-- Teks "Kreator konten dengan passion di berbagai platform media sosial..." telah dihapus -->
-        </section>
-
-        <!-- Ikuti Kami Section -->
-        <section class="follow-section">
-            <h2 class="follow-title">IKUTI KAMI DI SINI</h2>
-            <p style="margin-bottom: 20px; color: #cbd5e1;">Klik pada salah satu platform di bawah untuk mengikuti saya</p>
-        </section>
-
-        <!-- Links Section -->
-        <section class="links-section">
-            <h2 class="section-title">Sosial Media & Link</h2>
+            <p class="tagline">Content Creator | Digital Enthusiast</p>
             
-            <div class="links-container">
+            <!-- Teks Berjalan -->
+            <div class="marquee-container">
+                <div class="marquee-text" id="marquee">
+                    SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA
+                </div>
+            </div>
+        </header>
+        
+        <!-- Section Ikuti Kami -->
+        <section class="follow-section animated">
+            <h2 class="section-title">IKUTI KAMI DI SINI</h2>
+            <div class="social-links">
                 <!-- Instagram -->
-                <div class="link-card">
-                    <div class="link-icon instagram">
+                <div class="social-card">
+                    <div class="social-icon instagram">
                         <i class="fab fa-instagram"></i>
                     </div>
-                    <h3 class="link-title">Instagram</h3>
-                    <p class="link-description">Ikuti saya di Instagram untuk update harian dan konten eksklusif</p>
-                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn">Kunjungi Instagram</a>
+                    <h3 class="social-name">Instagram</h3>
+                    <p class="social-desc">Follow untuk update sehari-hari dan konten eksklusif</p>
+                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn-follow">Follow Sekarang</a>
                 </div>
-
+                
                 <!-- Social Buzz -->
-                <div class="link-card">
-                    <div class="link-icon sociabuzz">
-                        <i class="fas fa-hand-holding-heart"></i>
+                <div class="social-card">
+                    <div class="social-icon sociabuzz">
+                        <i class="fas fa-star"></i>
                     </div>
-                    <h3 class="link-title">Social Buzz</h3>
-                    <p class="link-description">Dukung saya di Social Buzz dan dapatkan akses ke konten premium</p>
-                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn">Kunjungi Social Buzz</a>
+                    <h3 class="social-name">Social Buzz</h3>
+                    <p class="social-desc">Support kreator dengan bergabung di tribe</p>
+                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn-follow">Join Tribe</a>
                 </div>
-
+                
                 <!-- Channel Orang Gabut -->
-                <div class="link-card">
-                    <div class="link
+                <div class="social-card">
+                    <div class="social-icon channel">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3 class="social-name">Channel Orang Gabut</h3>
+                    <p class="social-desc">Konten random dan seru untuk mengisi waktu luang</p>
+                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="btn-follow">Subscribe</a>
+                </div>
+                
+                <!-- TikTok Official -->
+                <div class="social-card">
+                    <div class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3 class="social-name">TikTok Official</h3>
+                    <p class="social-desc">Video pendek dan tren terkini</p>
+                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="btn-follow">Follow TikTok</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rekomendasi Barang -->
+        <section class="recommendation animated">
+            <h3>REKOMENDASI BARANG MURAH MERIAH</h3>
+            <p>Temukan berbagai rekomendasi produk menarik dengan harga terjangkau di link berikut:</p>
+            <div class="social-card" style="margin: 0 auto; max-width: 300px;">
+                <div class="social-icon linktree">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3 class="social-name">Linktree Fajrush</h3>
+                <p class="social-desc">Semua link rekomendasi barang dalam satu tempat</p>
+                <a href="https://linktr.ee/fajrush33" target="_blank" class="btn-follow">Kunjungi Sekarang</a>
+            </div>
+        </section>
+        
+        <footer class="animated">
+            <p>© 2023 Website Resmi Fajrush. Semua hak cipta dilindungi.</p>
+            <p>Website dibuat dengan ❤️ untuk pengikut setia</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animasi teks berjalan
+        const marqueeText = document.getElementById('marquee');
+        const text = marqueeText.textContent;
+        marqueeText.innerHTML = text.split('').map(char => 
+            `<span style="display:inline-block;transition:all 0.3s;">${char}</span>`
+        ).join('');
+        
+        // Efek hover pada teks marquee
+        const chars = document.querySelectorAll('#marquee span');
+        marqueeText.addEventListener('mouseover', () => {
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.style.transform = 'translateY(-10px)';
+                    char.style.color = '#ff00ff';
+                }, index * 30);
+            });
+        });
+        
+        marqueeText.addEventListener('mouseout', () => {
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.style.transform = 'translateY(0)';
+                    char.style.color = '#00ffea';
+                }, index * 30);
+            });
+        });
+        
+        // Efek partikel latar belakang
+        const particlesContainer = document.getElementById('particles');
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Posisi acak
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Ukuran acak
+            const size = Math.random() * 4 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Opasitas acak
+            particle.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            // Warna acak
+            const colors = ['#00d2ff', '#3a7bd5', '#E1306C', '#FFD700', '#39E09B'];
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            particlesContainer.appendChild(particle);
+            
+            // Animasi partikel
+            const duration = Math.random() * 10 + 10;
+            particle.style.transition = `all ${duration}s linear`;
+            
+            setTimeout(() => {
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+            }, 100);
+            
+            // Hapus partikel setelah selesai
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+        
+        // Buat partikel secara berkala
+        function generateParticles() {
+            setInterval(createParticle, 200);
+            for(let i = 0; i < 30; i++) {
+                setTimeout(createParticle, i * 100);
+            }
+        }
+        
+        // Animasi elemen saat scroll
+        const animatedElements = document.querySelectorAll('.animated');
+        
+        function checkScroll() {
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Inisialisasi
+        window.addEventListener('DOMContentLoaded', () => {
+            generateParticles();
+            checkScroll();
+            
+            // Set interval untuk efek marquee
+            setInterval(() => {
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.style.transform = 'translateY(-5px)';
+                        setTimeout(() => {
+                            char.style.transform = 'translateY(0)';
+                        }, 300);
+                    }, index * 50);
+                });
+            }, 3000);
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
