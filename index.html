@@ -27,6 +27,30 @@
             padding: 20px;
         }
 
+        /* Marquee Teks Berjalan di Paling Atas */
+        .top-marquee {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 12px 0;
+            border-bottom: 2px solid #6366f1;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-marquee-content {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #60a5fa;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
         header {
             text-align: center;
             padding: 40px 20px;
@@ -48,31 +72,6 @@
             margin-bottom: 30px;
         }
 
-        /* Marquee Styling */
-        .marquee-container {
-            background: rgba(30, 41, 59, 0.8);
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px auto;
-            max-width: 800px;
-            border: 1px solid #334155;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        .marquee {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #60a5fa;
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
         /* Profile Section */
         .profile {
             text-align: center;
@@ -83,12 +82,6 @@
         .profile h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-        }
-
-        .profile p {
-            color: #cbd5e1;
-            font-size: 1.1rem;
-            line-height: 1.6;
         }
 
         /* Links Section */
@@ -210,12 +203,12 @@
                 padding: 10px;
             }
             
-            .logo {
-                font-size: 2.5rem;
+            .top-marquee-content {
+                font-size: 1rem;
             }
             
-            .marquee {
-                font-size: 1.2rem;
+            .logo {
+                font-size: 2.5rem;
             }
             
             .profile h1 {
@@ -228,21 +221,33 @@
             
             .link-card {
                 padding: 20px;
-        <!-- Marquee Teks Berjalan -->
-        <div class="marquee-container">
-            <div class="marquee">
-                SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp;&nbsp;
-                SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Teks Berjalan di Paling Atas -->
+        <div class="top-marquee">
+            <div class="top-marquee-content">
+                ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA ✨ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA ✨
             </div>
         </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo">FAJRUSH</div>
+            <div class="tagline">Kreator Konten & Penggemar Barang Murah Meriah</div>
+        </header>
 
         <!-- Profile Section -->
         <section class="profile">
             <h1>Fajrush</h1>
-            <p>Kreator konten dengan passion di berbagai platform media sosial. Saya berbagi konten menarik, rekomendasi produk, dan informasi terbaru untuk Anda.</p>
+            <!-- Teks "Kreator konten dengan passion di berbagai platform media sosial..." telah dihapus -->
         </section>
 
-        <!-- Ikuti Kami Section -->ki
+        <!-- Ikuti Kami Section -->
         <section class="follow-section">
             <h2 class="follow-title">IKUTI KAMI DI SINI</h2>
             <p style="margin-bottom: 20px; color: #cbd5e1;">Klik pada salah satu platform di bawah untuk mengikuti saya</p>
@@ -275,69 +280,4 @@
 
                 <!-- Channel Orang Gabut -->
                 <div class="link-card">
-                    <div class="link-icon channel">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <h3 class="link-title">Channel Orang Gabut</h3>
-                    <p class="link-description">Konten santai dan menghibur di channel khusus untuk waktu luang</p>
-                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="btn">Kunjungi Channel</a>
-                </div>
-
-                <!-- TikTok Official -->
-                <div class="link-card">
-                    <div class="link-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3 class="link-title">TikTok Official</h3>
-                    <p class="link-description">Video pendek, tren terkini, dan konten seru lainnya di TikTok</p>
-                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="btn">Kunjungi TikTok</a>
-                </div>
-
-                <!-- Rekomendasi Barang -->
-                <div class="link-card">
-                    <div class="link-icon linktree">
-                        <i class="fas fa-link"></i>
-                    </div>
-                    <h3 class="link-title">Rekomendasi Barang</h3>
-                    <p class="link-description">Temukan barang murah meriah dan rekomendasi produk terbaik di sini</p>
-                    <a href="https://linktr.ee/fajrush33" target="_blank" class="btn">Lihat Rekomendasi</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2023 Website Resmi Fajrush. Semua hak dilindungi.</p>
-            <p style="margin-top: 10px;">Follow semua sosial media saya untuk mendapatkan update terbaru!</p>
-        </footer>
-    </div>
-
-    <script>
-        // Tambahkan efek interaktif pada tombol
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(90deg, #ec4899, #6366f1)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.background = 'linear-gradient(90deg, #6366f1, #ec4899)';
-            });
-        });
-        
-        // Animasi untuk kartu link saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            const linkCards = document.querySelectorAll('.link-card');
-            linkCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100 * index);
-            });
-        });
-    </script>
-</body>
-</html>
+                    <div class="link
