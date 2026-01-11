@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Resmi Fajrush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #0c0c2e, #1a1a4a, #2a2a6e);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #fff;
             min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
         }
         
@@ -30,79 +30,68 @@
         /* Header */
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 60px 0 40px;
             position: relative;
         }
         
         h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(to right, #ff0080, #00d2ff, #ffeb3b);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #91eae4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 126, 95, 0.5)); }
+            100% { filter: drop-shadow(0 0 15px rgba(134, 168, 231, 0.7)); }
         }
         
         .tagline {
-            font-size: 1.3rem;
-            color: #b0b0ff;
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            color: #b8c1ec;
+            margin-bottom: 40px;
             font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
         
-        /* Marquee text berjalan */
+        /* Marquee text berjalan - Diperlambat */
         .marquee-wrapper {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
             padding: 5px;
-            margin: 30px 0 50px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
+            margin: 40px 0 60px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .marquee-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            margin: -2px;
-            border-radius: inherit;
-            background: linear-gradient(45deg, #ff0080, #00d2ff, #ffeb3b, #ff0080);
-            background-size: 400% 400%;
-            animation: gradientBorder 3s ease infinite;
-        }
-        
-        @keyframes gradientBorder {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .marquee-container {
-            padding: 20px;
-            background: rgba(10, 10, 40, 0.9);
-            border-radius: 45px;
+            padding: 25px 20px;
             overflow: hidden;
         }
         
         .marquee-text {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #fff;
-            font-weight: 700;
+            font-weight: 600;
             white-space: nowrap;
             padding: 10px 0;
-            text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            /* Diperlambat dari 20s menjadi 30s */
+            animation: marquee 30s linear infinite;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
         
@@ -114,13 +103,14 @@
         /* Section Follow */
         .follow-section {
             text-align: center;
-            margin: 40px 0 60px;
+            margin: 50px 0 70px;
         }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #00d2ff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: #fff;
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
@@ -129,27 +119,28 @@
         .section-title:after {
             content: '';
             position: absolute;
-            width: 100%;
+            width: 70%;
             height: 4px;
-            background: linear-gradient(to right, transparent, #00d2ff, transparent);
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
             bottom: 0;
-            left: 0;
+            left: 15%;
+            border-radius: 2px;
         }
         
         .social-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
         
         .social-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(0,0,0,0.2));
             border-radius: 20px;
-            padding: 30px 20px;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -162,16 +153,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(255,0,128,0.1), rgba(0,210,255,0.1));
+            background: linear-gradient(45deg, rgba(255,126,95,0.1), rgba(134,168,231,0.1));
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
         }
         
         .social-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
-            border-color: #00d2ff;
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         
         .social-card:hover:before {
@@ -179,42 +170,43 @@
         }
         
         .social-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 3.8rem;
+            margin-bottom: 25px;
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
         }
         
         .social-card:hover .social-icon {
-            transform: rotate(10deg) scale(1.2);
+            transform: rotateY(360deg);
         }
         
         .instagram { color: #E1306C; }
         .sociabuzz { color: #FFD700; }
-        .channel { color: #1DA1F2; }
+        .channel { color: #FF0000; }
         .tiktok { color: #000000; }
         .linktree { color: #39E09B; }
         
         .social-name {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
             color: #fff;
             font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .social-desc {
-            font-size: 1rem;
-            color: #b0b0b0;
-            margin-bottom: 20px;
-            min-height: 60px;
-            line-height: 1.5;
+            font-size: 1.05rem;
+            color: #d1d1e9;
+            margin-bottom: 25px;
+            min-height: 80px;
+            line-height: 1.6;
         }
         
         .btn-follow {
             display: inline-block;
-            background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -224,6 +216,8 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
         }
         
         .btn-follow:before {
@@ -233,14 +227,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            background: linear-gradient(45deg, #86a8e7, #91eae4);
             z-index: -1;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            border-radius: 50px;
         }
         
         .btn-follow:hover {
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 126, 95, 0.4);
             transform: translateY(-3px);
         }
         
@@ -250,80 +245,113 @@
         
         /* Rekomendasi Barang */
         .recommendation {
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(0,0,0,0.2));
+            background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,0,0,0.2));
             border-radius: 25px;
-            padding: 40px 30px;
-            margin: 60px 0;
+            padding: 50px 40px;
+            margin: 70px 0;
             text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.2);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
         
         .recommendation:before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, #ffd700, #ff8c00, #ffd700);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,215,0,0.05)"/></svg>');
+            background-size: cover;
             z-index: -1;
-            filter: blur(20px);
-            opacity: 0.3;
         }
         
         .recommendation h3 {
-            font-size: 2.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
             color: #FFD700;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
         }
         
         .recommendation p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
             color: #fff;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 0 30px;
-            margin-top: 60px;
+            padding: 50px 0 40px;
+            margin-top: 70px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 1rem;
-            background: rgba(0, 0, 0, 0.2);
+            color: #b8c1ec;
+            font-size: 1.05rem;
+            background: rgba(0, 0, 0, 0.1);
             border-radius: 20px 20px 0 0;
         }
         
         footer p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .copyright {
+            font-size: 0.95rem;
+            color: #8a8fb3;
+            margin-top: 20px;
         }
         
         /* Animasi */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
         
         .animated {
+            opacity: 0;
             animation: fadeInUp 1s ease forwards;
         }
         
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        
         /* Responsive */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            .section-title { font-size: 2.4rem; }
+            .social-links { grid-template-columns: repeat(2, 1fr); }
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .tagline { font-size: 1.1rem; }
+            h1 { font-size: 2.8rem; }
+            .tagline { font-size: 1.2rem; }
             .social-links { grid-template-columns: 1fr; }
-            .marquee-text { font-size: 1.2rem; }
+            .marquee-text { font-size: 1.3rem; }
             .section-title { font-size: 2rem; }
-            .recommendation h3 { font-size: 1.8rem; }
+            .recommendation h3 { font-size: 2rem; }
+            .recommendation p { font-size: 1.1rem; }
+            .social-card { padding: 30px 20px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .marquee-text { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
         }
         
         /* Efek Partikel */
@@ -339,15 +367,35 @@
         
         .particle {
             position: absolute;
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
             border-radius: 50%;
             opacity: 0;
+            background-color: #fff;
         }
         
-        /* Glowing Effect */
-        .glow {
-            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        /* Decorative Elements */
+        .decor-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            background: radial-gradient(circle, rgba(134,168,231,0.1) 0%, rgba(134,168,231,0) 70%);
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(255,126,95,0.1) 0%, rgba(255,126,95,0) 70%);
         }
     </style>
 </head>
@@ -355,90 +403,105 @@
     <!-- Partikel Latar Belakang -->
     <div class="particles" id="particles"></div>
     
+    <!-- Decorative Circles -->
+    <div class="decor-circle circle-1"></div>
+    <div class="decor-circle circle-2"></div>
+    
     <div class="container">
         <header class="animated">
-            <h1 class="glow">FAJRUSH</h1>
-            <p class="tagline">Content Creator | Digital Enthusiast | Follow untuk update terbaru</p>
+            <h1>FAJRUSH</h1>
+            <p class="tagline animated delay-1">Content Creator • Digital Enthusiast • Follow semua sosial media saya untuk mendapatkan update terbaru</p>
             
-            <!-- Teks Berjalan -->
-            <div class="marquee-wrapper">
+            <!-- Teks Berjalan - Diperlambat -->
+            <div class="marquee-wrapper animated delay-2">
                 <div class="marquee-container">
                     <div class="marquee-text">
-                        SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
+                        ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             </div>
         </header>
         
         <!-- Section Ikuti Kami -->
-        <section class="follow-section animated">
-            <h2 class="section-title">IKUTI KAMI DI SINI</h2>
+        <section class="follow-section">
+            <h2 class="section-title animated delay-1">IKUTI KAMI DI SINI</h2>
             <div class="social-links">
                 <!-- Instagram -->
-                <div class="social-card">
+                <div class="social-card animated delay-1">
                     <div class="social-icon instagram">
                         <i class="fab fa-instagram"></i>
                     </div>
                     <h3 class="social-name">Instagram</h3>
-                    <p class="social-desc">Follow untuk update sehari-hari, konten eksklusif, dan kehidupan pribadi saya</p>
-                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn-follow">Follow Sekarang</a>
+                    <p class="social-desc">Follow Instagram saya untuk melihat update sehari-hari, konten eksklusif, dan kehidupan pribadi saya.</p>
+                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn-follow">
+                        <i class="fab fa-instagram"></i> Follow Sekarang
+                    </a>
                 </div>
                 
                 <!-- Social Buzz -->
-                <div class="social-card">
+                <div class="social-card animated delay-2">
                     <div class="social-icon sociabuzz">
-                        <i class="fas fa-star glow"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                     <h3 class="social-name">Social Buzz</h3>
-                    <p class="social-desc">Support kreator dengan bergabung di tribe dan dapatkan konten eksklusif</p>
-                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn-follow">Join Tribe</a>
+                    <p class="social-desc">Support saya sebagai kreator dengan bergabung di tribe dan dapatkan akses ke konten eksklusif.</p>
+                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn-follow">
+                        <i class="fas fa-users"></i> Join Tribe
+                    </a>
                 </div>
                 
                 <!-- Channel Orang Gabut -->
-                <div class="social-card">
+                <div class="social-card animated delay-3">
                     <div class="social-icon channel">
                         <i class="fab fa-youtube"></i>
                     </div>
                     <h3 class="social-name">Channel Orang Gabut</h3>
-                    <p class="social-desc">Konten random, seru, dan menghibur untuk mengisi waktu luang Anda</p>
-                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="btn-follow">Subscribe Channel</a>
+                    <p class="social-desc">Konten random, seru, dan menghibur untuk mengisi waktu luang Anda. Perfect for gabut moments!</p>
+                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="btn-follow">
+                        <i class="fab fa-youtube"></i> Subscribe
+                    </a>
                 </div>
                 
                 <!-- TikTok Official -->
-                <div class="social-card">
+                <div class="social-card animated delay-4">
                     <div class="social-icon tiktok">
                         <i class="fab fa-tiktok"></i>
                     </div>
                     <h3 class="social-name">TikTok Official</h3>
-                    <p class="social-desc">Video pendek, tren terkini, dan konten viral yang selalu update</p>
-                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="btn-follow">Follow TikTok</a>
+                    <p class="social-desc">Video pendek, tren terkini, dan konten viral yang selalu update. Jangan lupa follow dan like!</p>
+                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="btn-follow">
+                        <i class="fab fa-tiktok"></i> Follow TikTok
+                    </a>
                 </div>
             </div>
         </section>
         
         <!-- Rekomendasi Barang -->
-        <section class="recommendation animated">
+        <section class="recommendation animated delay-3">
             <h3>REKOMENDASI BARANG MURAH MERIAH</h3>
-            <p>Temukan berbagai rekomendasi produk menarik dengan harga terjangkau di link berikut. Dapatkan barang-barang keren dengan harga murah!</p>
-            <div class="social-card" style="max-width: 350px; margin: 0 auto;">
+            <p>Temukan berbagai rekomendasi produk menarik dengan harga terjangkau. Dapatkan barang-barang keren dengan harga murah yang cocok untuk semua kalangan!</p>
+            <div class="social-card" style="max-width: 380px; margin: 0 auto;">
                 <div class="social-icon linktree">
-                    <i class="fas fa-link glow"></i>
+                    <i class="fas fa-shopping-cart"></i>
                 </div>
                 <h3 class="social-name">Linktree Fajrush</h3>
-                <p class="social-desc">Semua link rekomendasi barang dalam satu tempat yang mudah diakses</p>
-                <a href="https://linktr.ee/fajrush33" target="_blank" class="btn-follow">Kunjungi Sekarang</a>
+                <p class="social-desc">Semua link rekomendasi barang dalam satu tempat yang mudah diakses. Klik tombol di bawah!</p>
+                <a href="https://linktr.ee/fajrush33" target="_blank" class="btn-follow">
+                    <i class="fas fa-external-link-alt"></i> Kunjungi Sekarang
+                </a>
             </div>
         </section>
         
-        <footer class="animated">
-            <p>© 2023 Website Resmi Fajrush. Semua hak cipta dilindungi.</p>
-            <p>Website dibuat dengan ❤️ untuk pengikut setia | Update terbaru selalu di sosial media</p>
+        <footer class="animated delay-4">
+            <p><i class="fas fa-heart" style="color: #ff7e5f;"></i> Terima kasih telah mengunjungi website resmi saya</p>
+            <p>Jangan lupa follow semua sosial media untuk update terbaru</p>
+            <p class="copyright">© 2023 Website Resmi Fajrush. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
-        // Efek partikel latar belakang
+        // Efek partikel latar belakang yang lebih halus
         const particlesContainer = document.getElementById('particles');
         
         function createParticle() {
@@ -446,33 +509,37 @@
             particle.classList.add('particle');
             
             // Posisi acak
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
             
-            // Ukuran acak
-            const size = Math.random() * 8 + 2;
+            // Ukuran acak kecil
+            const size = Math.random() * 3 + 1;
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
             
-            // Warna acak
-            const colors = ['#ff0080', '#00d2ff', '#ffeb3b', '#39E09B', '#E1306C'];
+            // Warna acak dari palet
+            const colors = ['#ff7e5f', '#feb47b', '#86a8e7', '#91eae4', '#b8c1ec'];
             const color = colors[Math.floor(Math.random() * colors.length)];
             particle.style.backgroundColor = color;
             
-            // Efek glow
-            particle.style.boxShadow = `0 0 ${size*2}px ${size}px ${color}`;
+            // Efek glow ringan
+            particle.style.boxShadow = `0 0 ${size*3}px ${size}px ${color}20`;
             
             particlesContainer.appendChild(particle);
             
-            // Animasi partikel
-            const duration = Math.random() * 10 + 10;
-            particle.style.transition = `all ${duration}s linear`;
-            particle.style.opacity = '0.8';
+            // Animasi partikel yang lebih lambat dan halus
+            const duration = Math.random() * 15 + 15; // 15-30 detik
+            particle.style.transition = `all ${duration}s ease-out`;
+            particle.style.opacity = '0.7';
             
-            // Bergerak secara acak
+            // Bergerak secara halus
             setTimeout(() => {
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
+                const moveX = (Math.random() - 0.5) * 30;
+                const moveY = (Math.random() - 0.5) * 30;
+                particle.style.left = `${posX + moveX}%`;
+                particle.style.top = `${posY + moveY}%`;
                 particle.style.opacity = '0';
             }, 100);
             
@@ -484,15 +551,15 @@
             }, duration * 1000);
         }
         
-        // Buat partikel secara berkala
+        // Buat partikel secara berkala (lebih sedikit)
         function generateParticles() {
-            setInterval(createParticle, 300);
-            for(let i = 0; i < 50; i++) {
-                setTimeout(createParticle, i * 100);
+            setInterval(createParticle, 500); // Diperlambat
+            for(let i = 0; i < 30; i++) {
+                setTimeout(createParticle, i * 300);
             }
         }
         
-        // Animasi elemen saat scroll
+        // Animasi elemen saat scroll dengan threshold yang lebih baik
         const animatedElements = document.querySelectorAll('.animated');
         
         function checkScroll() {
@@ -500,53 +567,74 @@
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
-                if (elementTop < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                if (elementTop < windowHeight - 50) {
+                    element.style.animationPlayState = 'running';
                 }
             });
         }
         
-        // Efek hover pada kartu sosial media
+        // Efek hover pada kartu sosial media yang lebih halus
         const socialCards = document.querySelectorAll('.social-card');
         socialCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
                 const icon = this.querySelector('.social-icon i');
-                const colors = ['#ff0080', '#00d2ff', '#ffeb3b', '#39E09B'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                icon.style.color = randomColor;
-                icon.classList.add('glow');
+                
+                // Efek ringan saja
+                icon.style.transform = 'scale(1.1)';
+                
+                // Tambahkan efek shadow pada kartu
+                this.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.5)';
             });
             
             card.addEventListener('mouseleave', function() {
                 const icon = this.querySelector('.social-icon i');
-                icon.classList.remove('glow');
+                icon.style.transform = 'scale(1)';
                 
-                // Kembalikan warna asli berdasarkan kelas
-                if (icon.classList.contains('fa-instagram')) icon.style.color = '#E1306C';
-                else if (icon.classList.contains('fa-star')) icon.style.color = '#FFD700';
-                else if (icon.classList.contains('fa-youtube')) icon.style.color = '#1DA1F2';
-                else if (icon.classList.contains('fa-tiktok')) icon.style.color = '#000000';
-                else if (icon.classList.contains('fa-link')) icon.style.color = '#39E09B';
+                // Kembalikan shadow
+                this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.4)';
             });
         });
+        
+        // Kontrol kecepatan marquee dengan tombol (opsional)
+        const marqueeText = document.querySelector('.marquee-text');
+        let marqueeSpeed = 30; // detik
+        
+        function updateMarqueeSpeed() {
+            marqueeText.style.animationDuration = `${marqueeSpeed}s`;
+        }
         
         // Inisialisasi
         window.addEventListener('DOMContentLoaded', () => {
             generateParticles();
             checkScroll();
             
-            // Efek teks berjalan tambahan
-            const marqueeText = document.querySelector('.marquee-text');
-            setInterval(() => {
+            // Set semua animasi ke paused dulu
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+            });
+            
+            // Update kecepatan marquee
+            updateMarqueeSpeed();
+            
+            // Restart marquee animation setiap cycle untuk menghindari lag
+            const restartMarquee = () => {
                 marqueeText.style.animation = 'none';
                 setTimeout(() => {
-                    marqueeText.style.animation = 'marquee 20s linear infinite';
+                    marqueeText.style.animation = `marquee ${marqueeSpeed}s linear infinite`;
                 }, 10);
-            }, 20000);
+            };
+            
+            // Restart setiap 5 menit
+            setInterval(restartMarquee, 300000);
         });
         
         window.addEventListener('scroll', checkScroll);
+        
+        // Fungsi untuk mengubah kecepatan marquee jika diperlukan
+        window.changeMarqueeSpeed = function(speed) {
+            marqueeSpeed = speed;
+            updateMarqueeSpeed();
+        };
     </script>
 </body>
 </html>
