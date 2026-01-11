@@ -3,638 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Resmi Fajrush</title>
+    <title>Maintenance Mode - Situs Sedang Dalam Perbaikan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: #fff;
             min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             overflow-x: hidden;
         }
-        
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Header */
-        header {
+            max-width: 1000px;
+            width: 100%;
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 40px 30px;
+            background: rgba(15, 32, 39, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(64, 224, 208, 0.3);
             position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(64, 224, 208, 0.1) 0%, rgba(15, 32, 39, 0) 70%);
+            z-index: -1;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #40e0d0, #20b2aa, #00ced1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: #40e0d0;
+        }
+
+        .main-icon {
+            font-size: 5rem;
+            color: #40e0d0;
             margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: textGlow 3s ease-in-out infinite alternate;
+            animation: pulse 2s infinite;
         }
-        
-        @keyframes textGlow {
-            0% { filter: drop-shadow(0 0 5px rgba(255, 126, 95, 0.5)); }
-            100% { filter: drop-shadow(0 0 15px rgba(134, 168, 231, 0.7)); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-        
-        .tagline {
-            font-size: 1.4rem;
-            color: #b8c1ec;
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            line-height: 1.6;
             margin-bottom: 40px;
-            font-weight: 300;
+            color: #d1f7f4;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
         }
-        
-        /* Marquee text berjalan - Diperlambat */
-        .marquee-wrapper {
-            background: rgba(255, 255, 255, 0.05);
+
+        .highlight {
+            color: #40e0d0;
+            font-weight: 600;
+        }
+
+        .countdown-container {
+            margin: 50px 0;
+        }
+
+        .countdown-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #a0e9e1;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .countdown-item {
+            background: rgba(32, 58, 67, 0.9);
             border-radius: 15px;
-            padding: 5px;
-            margin: 40px 0 60px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 25px 15px;
+            min-width: 130px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(64, 224, 208, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .marquee-container {
-            padding: 25px 20px;
-            overflow: hidden;
+
+        .countdown-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
         }
-        
-        .marquee-text {
-            font-size: 1.6rem;
-            color: #fff;
-            font-weight: 600;
-            white-space: nowrap;
-            padding: 10px 0;
+
+        .countdown-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #40e0d0;
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #b0f0ea;
+            margin-top: 10px;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-block;
-            /* Diperlambat dari 20s menjadi 30s */
-            animation: marquee 30s linear infinite;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
-        
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+
+        .progress-container {
+            margin: 40px auto;
+            max-width: 600px;
         }
-        
-        /* Section Follow */
-        .follow-section {
-            text-align: center;
-            margin: 50px 0 70px;
+
+        .progress-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #a0e9e1;
         }
-        
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 50px;
-            color: #fff;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 4px;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            bottom: 0;
-            left: 15%;
-            border-radius: 2px;
-        }
-        
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .social-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(0,0,0,0.2));
-            border-radius: 20px;
-            padding: 35px 25px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            position: relative;
+
+        .progress-bar {
+            height: 20px;
+            background: rgba(32, 58, 67, 0.9);
+            border-radius: 10px;
             overflow: hidden;
-            z-index: 1;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
         }
-        
-        .social-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+
+        .progress-fill {
             height: 100%;
-            background: linear-gradient(45deg, rgba(255,126,95,0.1), rgba(134,168,231,0.1));
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            background: linear-gradient(90deg, #40e0d0, #20b2aa);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s ease-in-out;
         }
-        
-        .social-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.3);
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #b0f0ea;
         }
-        
-        .social-card:hover:before {
-            opacity: 1;
+
+        .info-box {
+            background: rgba(32, 58, 67, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: left;
+            border-left: 5px solid #40e0d0;
         }
-        
-        .social-icon {
-            font-size: 3.8rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            transition: all 0.4s ease;
+
+        .info-box h3 {
+            color: #40e0d0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
-        
-        .social-card:hover .social-icon {
-            transform: rotateY(360deg);
+
+        .info-box ul {
+            list-style-type: none;
+            padding-left: 10px;
         }
-        
-        .instagram { color: #E1306C; }
-        .sociabuzz { color: #FFD700; }
-        .channel { color: #FF0000; }
-        .tiktok { color: #000000; }
-        .linktree { color: #39E09B; }
-        
-        .social-name {
-            font-size: 1.6rem;
-            margin-bottom: 18px;
-            color: #fff;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
+
+        .info-box li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
         }
-        
-        .social-desc {
-            font-size: 1.05rem;
-            color: #d1d1e9;
-            margin-bottom: 25px;
-            min-height: 80px;
-            line-height: 1.6;
+
+        .info-box li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #40e0d0;
+            font-weight: bold;
         }
-        
-        .btn-follow {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff7e5f, #feb47b);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
+
+        .contact {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: #d1f7f4;
+        }
+
+        .contact a {
+            color: #40e0d0;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
-        
-        .btn-follow:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #86a8e7, #91eae4);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            border-radius: 50px;
-        }
-        
-        .btn-follow:hover {
-            box-shadow: 0 10px 25px rgba(255, 126, 95, 0.4);
-            transform: translateY(-3px);
-        }
-        
-        .btn-follow:hover:before {
-            opacity: 1;
-        }
-        
-        /* Rekomendasi Barang */
-        .recommendation {
-            background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,0,0,0.2));
-            border-radius: 25px;
-            padding: 50px 40px;
-            margin: 70px 0;
-            text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-        
-        .recommendation:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,215,0,0.05)"/></svg>');
-            background-size: cover;
-            z-index: -1;
-        }
-        
-        .recommendation h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
-        }
-        
-        .recommendation p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
+
+        .contact a:hover {
             color: #fff;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
+            text-decoration: underline;
         }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 0 40px;
-            margin-top: 70px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #b8c1ec;
-            font-size: 1.05rem;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 20px 20px 0 0;
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #8acbc5;
         }
-        
-        footer p {
-            margin-bottom: 15px;
-        }
-        
-        .copyright {
-            font-size: 0.95rem;
-            color: #8a8fb3;
-            margin-top: 20px;
-        }
-        
-        /* Animasi */
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(50px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-        
-        .animated {
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            h1 { font-size: 3.5rem; }
-            .section-title { font-size: 2.4rem; }
-            .social-links { grid-template-columns: repeat(2, 1fr); }
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .tagline { font-size: 1.2rem; }
-            .social-links { grid-template-columns: 1fr; }
-            .marquee-text { font-size: 1.3rem; }
-            .section-title { font-size: 2rem; }
-            .recommendation h3 { font-size: 2rem; }
-            .recommendation p { font-size: 1.1rem; }
-            .social-card { padding: 30px 20px; }
-        }
-        
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .marquee-text { font-size: 1.1rem; }
-            .section-title { font-size: 1.8rem; }
-        }
-        
-        /* Efek Partikel */
+
+        /* Efek partikel */
         .particles {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
             z-index: -1;
+            overflow: hidden;
         }
-        
+
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            background-color: rgba(64, 224, 208, 0.2);
             border-radius: 50%;
-            opacity: 0;
-            background-color: #fff;
+            animation: float 15s infinite linear;
         }
-        
-        /* Decorative Elements */
-        .decor-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            z-index: -1;
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
         }
-        
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -150px;
-            background: radial-gradient(circle, rgba(134,168,231,0.1) 0%, rgba(134,168,231,0) 70%);
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .logo h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .countdown-item {
+                min-width: 100px;
+                padding: 20px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2.8rem;
+            }
         }
-        
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            left: -100px;
-            background: radial-gradient(circle, rgba(255,126,95,0.1) 0%, rgba(255,126,95,0) 70%);
+
+        @media (max-width: 480px) {
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px 5px;
+            }
+            
+            .countdown-value {
+                font-size: 2.2rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Partikel Latar Belakang -->
-    <div class="particles" id="particles"></div>
-    
-    <!-- Decorative Circles -->
-    <div class="decor-circle circle-1"></div>
-    <div class="decor-circle circle-2"></div>
+    <div class="particles" id="particles-container"></div>
     
     <div class="container">
-        <header class="animated">
-            <h1>FAJRUSH</h1>
-            <p class="tagline animated delay-1">Content Creator • Digital Enthusiast • Follow semua sosial media saya untuk mendapatkan update terbaru</p>
+        <div class="logo">
+            <h1><span>MAINTENANCE</span> MODE</h1>
+        </div>
+        
+        <div class="main-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+        
+        <h2>Situs Sedang Dalam Perbaikan</h2>
+        
+        <p class="description">
+            Kami sedang melakukan <span class="highlight">peningkatan dan perawatan</span> untuk memberikan pengalaman yang lebih baik. 
+            Estimasi waktu selesai dalam <span class="highlight" id="countdown-display">2 jam</span>. Terima kasih atas pengertian Anda.
+        </p>
+        
+        <div class="countdown-container">
+            <div class="countdown-title">Situs akan aktif kembali dalam:</div>
             
-            <!-- Teks Berjalan - Diperlambat -->
-            <div class="marquee-wrapper animated delay-2">
-                <div class="marquee-container">
-                    <div class="marquee-text">
-                        ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 
-                        ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH ✨ &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-                    </div>
-                </div>
-            </div>
-        </header>
-        
-        <!-- Section Ikuti Kami -->
-        <section class="follow-section">
-            <h2 class="section-title animated delay-1">IKUTI KAMI DI SINI</h2>
-            <div class="social-links">
-                <!-- Instagram -->
-                <div class="social-card animated delay-1">
-                    <div class="social-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <h3 class="social-name">Instagram</h3>
-                    <p class="social-desc">Follow Instagram saya untuk melihat update sehari-hari, konten eksklusif, dan kehidupan pribadi saya.</p>
-                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="btn-follow">
-                        <i class="fab fa-instagram"></i> Follow Sekarang
-                    </a>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Jam</div>
                 </div>
                 
-                <!-- Social Buzz -->
-                <div class="social-card animated delay-2">
-                    <div class="social-icon sociabuzz">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="social-name">Social Buzz</h3>
-                    <p class="social-desc">Support saya sebagai kreator dengan bergabung di tribe dan dapatkan akses ke konten eksklusif.</p>
-                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="btn-follow">
-                        <i class="fas fa-users"></i> Join Tribe
-                    </a>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Menit</div>
                 </div>
                 
-                <!-- Channel Orang Gabut -->
-                <div class="social-card animated delay-3">
-                    <div class="social-icon channel">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <h3 class="social-name">Channel Orang Gabut</h3>
-                    <p class="social-desc">Konten random, seru, dan menghibur untuk mengisi waktu luang Anda. Perfect for gabut moments!</p>
-                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="btn-follow">
-                        <i class="fab fa-youtube"></i> Subscribe
-                    </a>
-                </div>
-                
-                <!-- TikTok Official -->
-                <div class="social-card animated delay-4">
-                    <div class="social-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3 class="social-name">TikTok Official</h3>
-                    <p class="social-desc">Video pendek, tren terkini, dan konten viral yang selalu update. Jangan lupa follow dan like!</p>
-                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="btn-follow">
-                        <i class="fab fa-tiktok"></i> Follow TikTok
-                    </a>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Detik</div>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <!-- Rekomendasi Barang -->
-        <section class="recommendation animated delay-3">
-            <h3>REKOMENDASI BARANG MURAH MERIAH</h3>
-            <p>Temukan berbagai rekomendasi produk menarik dengan harga terjangkau. Dapatkan barang-barang keren dengan harga murah yang cocok untuk semua kalangan!</p>
-            <div class="social-card" style="max-width: 380px; margin: 0 auto;">
-                <div class="social-icon linktree">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <h3 class="social-name">Linktree Fajrush</h3>
-                <p class="social-desc">Semua link rekomendasi barang dalam satu tempat yang mudah diakses. Klik tombol di bawah!</p>
-                <a href="https://linktr.ee/fajrush33" target="_blank" class="btn-follow">
-                    <i class="fas fa-external-link-alt"></i> Kunjungi Sekarang
-                </a>
+        <div class="progress-container">
+            <div class="progress-title">Progress Perbaikan:</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
             </div>
-        </section>
+            <div class="progress-text">
+                <span>0%</span>
+                <span id="progress-percentage">0%</span>
+                <span>100%</span>
+            </div>
+        </div>
         
-        <footer class="animated delay-4">
-            <p><i class="fas fa-heart" style="color: #ff7e5f;"></i> Terima kasih telah mengunjungi website resmi saya</p>
-            <p>Jangan lupa follow semua sosial media untuk update terbaru</p>
-            <p class="copyright">© 2023 Website Resmi Fajrush. All rights reserved.</p>
-        </footer>
+        <div class="info-box">
+            <h3>Apa yang sedang kami lakukan?</h3>
+            <ul>
+                <li>Peningkatan keamanan sistem</li>
+                <li>Optimasi kecepatan loading</li>
+                <li>Penambahan fitur baru</li>
+                <li>Perbaikan bug dan error</li>
+                <li>Peningkatan pengalaman pengguna</li>
+            </ul>
+        </div>
+        
+        <div class="contact">
+            <i class="fas fa-envelope"></i>
+            <p>Untuk pertanyaan mendesak, hubungi: <a href="mailto:support@website.com">support@website.com</a></p>
+        </div>
+        
+        <div class="footer">
+            &copy; 2023 - All rights reserved. Maintenance Mode
+        </div>
     </div>
 
     <script>
-        // Efek partikel latar belakang yang lebih halus
-        const particlesContainer = document.getElementById('particles');
+        // Waktu maintenance: 2 jam dari sekarang atau lanjut dari localStorage
+        const MAINTENANCE_DURATION = 2 * 60 * 60 * 1000; // 2 jam dalam milidetik
+        let endTime;
         
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            // Posisi acak
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            particle.style.left = `${posX}%`;
-            particle.style.top = `${posY}%`;
-            
-            // Ukuran acak kecil
-            const size = Math.random() * 3 + 1;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Warna acak dari palet
-            const colors = ['#ff7e5f', '#feb47b', '#86a8e7', '#91eae4', '#b8c1ec'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.backgroundColor = color;
-            
-            // Efek glow ringan
-            particle.style.boxShadow = `0 0 ${size*3}px ${size}px ${color}20`;
-            
-            particlesContainer.appendChild(particle);
-            
-            // Animasi partikel yang lebih lambat dan halus
-            const duration = Math.random() * 15 + 15; // 15-30 detik
-            particle.style.transition = `all ${duration}s ease-out`;
-            particle.style.opacity = '0.7';
-            
-            // Bergerak secara halus
-            setTimeout(() => {
-                const moveX = (Math.random() - 0.5) * 30;
-                const moveY = (Math.random() - 0.5) * 30;
-                particle.style.left = `${posX + moveX}%`;
-                particle.style.top = `${posY + moveY}%`;
-                particle.style.opacity = '0';
-            }, 100);
-            
-            // Hapus partikel setelah selesai
-            setTimeout(() => {
-                if (particle.parentNode === particlesContainer) {
-                    particle.remove();
-                }
-            }, duration * 1000);
+        // Cek apakah sudah ada waktu akhir di localStorage
+        const storedEndTime = localStorage.getItem('maintenanceEndTime');
+        
+        if (storedEndTime) {
+            endTime = parseInt(storedEndTime);
+            // Jika waktu sudah lewat, reset ke 2 jam dari sekarang
+            if (Date.now() > endTime) {
+                endTime = Date.now() + MAINTENANCE_DURATION;
+                localStorage.setItem('maintenanceEndTime', endTime.toString());
+            }
+        } else {
+            // Set waktu akhir 2 jam dari sekarang
+            endTime = Date.now() + MAINTENANCE_DURATION;
+            localStorage.setItem('maintenanceEndTime', endTime.toString());
         }
         
-        // Buat partikel secara berkala (lebih sedikit)
-        function generateParticles() {
-            setInterval(createParticle, 500); // Diperlambat
-            for(let i = 0; i < 30; i++) {
-                setTimeout(createParticle, i * 300);
+        // Update countdown setiap detik
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        function updateCountdown() {
+            const now = Date.now();
+            const timeLeft = endTime - now;
+            
+            // Jika waktu habis
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.getElementById('progress-fill').style.width = '100%';
+                document.getElementById('progress-percentage').textContent = '100%';
+                
+                // Hapus data dari localStorage karena maintenance selesai
+                localStorage.removeItem('maintenanceEndTime');
+                
+                // Tampilkan pesan maintenance selesai
+                document.querySelector('h2').textContent = 'Maintenance Selesai!';
+                document.querySelector('.description').innerHTML = 
+                    'Maintenance telah <span class="highlight">selesai</span>. Situs akan segera aktif kembali. Silakan refresh halaman ini.';
+                return;
+            }
+            
+            // Hitung jam, menit, detik
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Update tampilan countdown
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Hitung progress persentase
+            const progressPercentage = 100 - Math.floor((timeLeft / MAINTENANCE_DURATION) * 100);
+            document.getElementById('progress-fill').style.width = `${progressPercentage}%`;
+            document.getElementById('progress-percentage').textContent = `${progressPercentage}%`;
+            
+            // Update teks countdown di deskripsi
+            let displayText = "";
+            if (hours > 0) {
+                displayText = `${hours} jam ${minutes} menit`;
+            } else if (minutes > 0) {
+                displayText = `${minutes} menit ${seconds} detik`;
+            } else {
+                displayText = `${seconds} detik`;
+            }
+            document.getElementById('countdown-display').textContent = displayText;
+        }
+        
+        // Panggil fungsi sekali untuk inisialisasi
+        updateCountdown();
+        
+        // Fungsi untuk membuat partikel
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Ukuran acak
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posisi acak
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Animasi dengan durasi acak
+                const duration = Math.random() * 20 + 15;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Delay acak
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
             }
         }
         
-        // Animasi elemen saat scroll dengan threshold yang lebih baik
-        const animatedElements = document.querySelectorAll('.animated');
-        
-        function checkScroll() {
-            animatedElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 50) {
-                    element.style.animationPlayState = 'running';
-                }
-            });
-        }
-        
-        // Efek hover pada kartu sosial media yang lebih halus
-        const socialCards = document.querySelectorAll('.social-card');
-        socialCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.social-icon i');
-                
-                // Efek ringan saja
-                icon.style.transform = 'scale(1.1)';
-                
-                // Tambahkan efek shadow pada kartu
-                this.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.5)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('.social-icon i');
-                icon.style.transform = 'scale(1)';
-                
-                // Kembalikan shadow
-                this.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.4)';
-            });
-        });
-        
-        // Kontrol kecepatan marquee dengan tombol (opsional)
-        const marqueeText = document.querySelector('.marquee-text');
-        let marqueeSpeed = 30; // detik
-        
-        function updateMarqueeSpeed() {
-            marqueeText.style.animationDuration = `${marqueeSpeed}s`;
-        }
-        
-        // Inisialisasi
-        window.addEventListener('DOMContentLoaded', () => {
-            generateParticles();
-            checkScroll();
-            
-            // Set semua animasi ke paused dulu
-            animatedElements.forEach(el => {
-                el.style.animationPlayState = 'paused';
-            });
-            
-            // Update kecepatan marquee
-            updateMarqueeSpeed();
-            
-            // Restart marquee animation setiap cycle untuk menghindari lag
-            const restartMarquee = () => {
-                marqueeText.style.animation = 'none';
-                setTimeout(() => {
-                    marqueeText.style.animation = `marquee ${marqueeSpeed}s linear infinite`;
-                }, 10);
-            };
-            
-            // Restart setiap 5 menit
-            setInterval(restartMarquee, 300000);
-        });
-        
-        window.addEventListener('scroll', checkScroll);
-        
-        // Fungsi untuk mengubah kecepatan marquee jika diperlukan
-        window.changeMarqueeSpeed = function(speed) {
-            marqueeSpeed = speed;
-            updateMarqueeSpeed();
-        };
+        // Buat partikel saat halaman dimuat
+        window.addEventListener('load', createParticles);
     </script>
 </body>
 </html>
