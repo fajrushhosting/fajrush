@@ -3,519 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fajrush - Website Resmi</title>
+    <title>Link Tree - Fajrush33</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Exo 2', sans-serif;
-            background: #0a0a2a;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             color: #fff;
             min-height: 100vh;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(28, 58, 173, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(100, 30, 150, 0.1) 0%, transparent 20%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
         }
 
-        /* Header & Navigasi */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
         }
 
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 28px;
-            color: #4db5ff;
-            text-shadow: 0 0 10px rgba(77, 181, 255, 0.7);
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #ff6b9d;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav li {
-            margin-left: 30px;
-        }
-
-        nav a {
-            color: #b8d4ff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        nav a:hover {
-            color: #4db5ff;
-            background: rgba(77, 181, 255, 0.1);
-            text-shadow: 0 0 10px rgba(77, 181, 255, 0.7);
-        }
-
-        /* Bagian Hero */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 60px;
-            flex-wrap: wrap;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #4cc9f0;
+            object-fit: cover;
             margin-bottom: 20px;
-            line-height: 1.1;
-            background: linear-gradient(90deg, #4db5ff, #ff6b9d);
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #4cc9f0, #4361ee);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #b8d4ff;
-        }
-
-        .hero-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-
-        .astronaut {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(77, 181, 255, 0.5));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Teks Berjalan */
         .marquee-container {
-            background: rgba(0, 10, 30, 0.8);
-            border: 2px solid #4db5ff;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
-            margin-bottom: 50px;
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(76, 201, 240, 0.3);
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(77, 181, 255, 0.3);
         }
 
         .marquee-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: #ffde59;
+            font-size: 1.2rem;
+            color: #f8f9fa;
             white-space: nowrap;
-            animation: marquee 20s linear infinite;
-            text-shadow: 0 0 10px rgba(255, 222, 89, 0.7);
+            padding: 5px 0;
         }
 
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #b8c1ec;
+            text-align: center;
+        }
+
+        .links-section {
+            margin-bottom: 30px;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+        }
+
+        .link-card:hover {
+            background: rgba(76, 201, 240, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: #4cc9f0;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+
+        .tiktok {
+            background: linear-gradient(45deg, #000000, #25f4ee, #fe2c55);
+        }
+
+        .donate {
+            background: linear-gradient(45deg, #ff9a00, #ff5e00);
+        }
+
+        .link-text {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .link-desc {
+            font-size: 0.9rem;
+            color: #b8c1ec;
+        }
+
+        .donate-section {
+            background: rgba(255, 94, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 94, 0, 0.3);
+        }
+
+        .donate-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff9a00;
+        }
+
+        .donate-button {
+            display: block;
+            background: linear-gradient(to right, #ff9a00, #ff5e00);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .donate-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 94, 0, 0.4);
+        }
+
+        .donate-desc {
+            font-size: 0.9rem;
+            text-align: center;
+            color: #ffcc99;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #b8c1ec;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .heart {
+            color: #ff4757;
+        }
+
+        /* Animasi teks berjalan */
         @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
 
-        /* Bagian Link Sosial Media */
-        .social-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .social-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #4db5ff;
-            text-shadow: 0 0 15px rgba(77, 181, 255, 0.7);
-        }
-
-        .social-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .social-card {
-            background: rgba(20, 30, 70, 0.7);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(77, 181, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(77, 181, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .social-card:hover:before {
-            left: 100%;
-        }
-
-        .social-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(77, 181, 255, 0.4);
-            border-color: #4db5ff;
-        }
-
-        .social-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .instagram { color: #e4405f; }
-        .sociabuzz { color: #00acee; }
-        .channel { color: #ff6b9d; }
-        .tiktok { color: #000000; }
-        .linktree { color: #39e09b; }
-
-        .social-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .social-card p {
-            color: #b8d4ff;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .social-link {
+        .marquee-text {
             display: inline-block;
-            background: #4db5ff;
-            color: #0a0a2a;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: #ff6b9d;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(77, 181, 255, 0.3);
-            color: #b8d4ff;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: #4db5ff;
-            margin: 0 10px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #ff6b9d;
-            text-decoration: underline;
-        }
-
-        /* Efek Bintang */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: twinkle 5s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
+            animation: marquee 20s linear infinite;
         }
 
         /* Responsif */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
             }
             
-            nav ul {
-                margin-top: 20px;
-                justify-content: center;
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
             
-            nav li {
-                margin: 0 10px;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
+            .link-card {
+                padding: 15px;
             }
             
             .marquee-text {
-                font-size: 1.2rem;
-            }
-            
-            .social-title {
-                font-size: 2rem;
+                font-size: 1rem;
+                animation: marquee 15s linear infinite;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Efek Bintang -->
-    <div class="stars" id="stars"></div>
-    
     <div class="container">
-        <!-- Header & Navigasi -->
         <header>
-            <div class="logo">FAJ<span>RUSH</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#social">Sosial Media</a></li>
-                    <li><a href="#recommendation">Rekomendasi</a></li>
-                </ul>
-            </nav>
+            <div class="profile-container">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Profile Picture" class="profile-img">
+            </div>
+            <h1>Fajrush33</h1>
+            <p class="subtitle">Content Creator & Digital Enthusiast</p>
         </header>
-        
-        <!-- Bagian Hero -->
-        <section class="hero" id="home">
-            <div class="hero-text">
-                <h1>Jelajahi Dunia Digital Bersama Fajrush</h1>
-                <p>Selamat datang di website resmi Fajrush. Di sini kamu bisa menemukan semua konten dan update terbaru dari berbagai platform sosial media yang saya kelola. Mari bersama-sama menjelajahi konten kreatif dan menarik!</p>
-                <p>Jangan lupa untuk follow semua sosial media saya agar tidak ketinggalan update terbaru!</p>
-            </div>
-            <div class="hero-image">
-                <img src="https://cdn.pixabay.com/photo/2021/12/14/12/46/astronaut-6870330_1280.png" alt="Astronaut" class="astronaut">
-            </div>
-        </section>
-        
-        <!-- Teks Berjalan -->
+
         <div class="marquee-container">
             <div class="marquee-text">
-                ✨ SELAMAT DATANG DI WEBSITE RESMI FAJRUSH, FOLLOW SEMUA SOSIAL MEDIA SAYA AGAR MENDAPATKAN UPDATE DARI SAYA ✨
+                <i class="fas fa-star"></i> Selamat datang di website pribadi saya! 😊 <i class="fas fa-star"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-heart"></i> Terima kasih sudah berkunjung! <i class="fas fa-heart"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fas fa-smile"></i> Jangan lupa follow media sosial saya! <i class="fas fa-smile"></i>
             </div>
         </div>
+
+        <div class="links-section">
+            <h2 class="subtitle">Ikuti saya di bawah</h2>
+            
+            <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-card">
+                <div class="link-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Official Instagram</div>
+                    <div class="link-desc">@fajrush33 - Follow untuk update terbaru!</div>
+                </div>
+                <div class="link-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+            
+            <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-939Q0hpehWB" target="_blank" class="link-card">
+                <div class="link-icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="link-text">
+                    <div class="link-title">Official TikTok</div>
+                    <div class="link-desc">@fajrush33 - Video-video seru setiap hari!</div>
+                </div>
+                <div class="link-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <div class="donate-section">
+            <h3 class="donate-title"><i class="fas fa-heart"></i> Dukung Karya Saya</h3>
+            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="donate-button">
+                <i class="fas fa-donate"></i> Donasi via Sociabuzz
+            </a>
+            <p class="donate-desc">
+                Dengan berdonasi, Anda mendukung saya untuk terus membuat konten berkualitas. 
+                Setiap donasi sangat berarti untuk pengembangan channel ini. Terima kasih!
+            </p>
+        </div>
         
-        <!-- Bagian Sosial Media -->
-        <section class="social-section" id="social">
-            <h2 class="social-title">IKUTI KAMI DI SINI</h2>
-            <div class="social-links">
-                <!-- Instagram -->
-                <div class="social-card">
-                    <div class="social-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <h3>Instagram</h3>
-                    <p>Follow Instagram saya untuk update harian dan konten eksklusif!</p>
-                    <a href="https://www.instagram.com/fajrush33" target="_blank" class="social-link">Kunjungi Instagram</a>
-                </div>
-                
-                <!-- Social Buzz -->
-                <div class="social-card">
-                    <div class="social-icon sociabuzz">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Social Buzz</h3>
-                    <p>Bergabunglah dengan komunitas di Sociabuzz untuk interaksi lebih dekat!</p>
-                    <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="social-link">Bergabung Sekarang</a>
-                </div>
-                
-                <!-- Channel Orang Gabut -->
-                <div class="social-card">
-                    <div class="social-icon channel">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <h3>Channel Orang Gabut</h3>
-                    <p>Temukan konten seru dan menghibur di channel khusus untuk waktu luang!</p>
-                    <a href="https://www.instagram.com/channel/AbZvbmk5U_lTpN15/" target="_blank" class="social-link">Kunjungi Channel</a>
-                </div>
-                
-                <!-- TikTok -->
-                <div class="social-card">
-                    <div class="social-icon tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3>TikTok Official</h3>
-                    <p>Ikuti TikTok untuk konten video singkat, tren terkini, dan hiburan cepat!</p>
-                    <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-92yAZ6kdKPE" target="_blank" class="social-link">Follow di TikTok</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Rekomendasi -->
-        <section class="social-section" id="recommendation">
-            <h2 class="social-title">REKOMENDASI BARANG MURAH MERIAH</h2>
-            <div class="social-links">
-                <div class="social-card">
-                    <div class="social-icon linktree">
-                        <i class="fas fa-link"></i>
-                    </div>
-                    <h3>Linktree Fajrush</h3>
-                    <p>Temukan semua rekomendasi produk dengan harga terjangkau dan kualitas terbaik di satu tempat!</p>
-                    <a href="https://linktr.ee/fajrush33" target="_blank" class="social-link">Lihat Rekomendasi</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer -->
         <footer>
-            <p>&copy; 2023 Website Resmi Fajrush. Semua hak dilindungi.</p>
-            <div class="footer-links">
-                <a href="#home">Home</a> |
-                <a href="#social">Sosial Media</a> |
-                <a href="#recommendation">Rekomendasi</a> |
-                <a href="https://linktr.ee/fajrush33" target="_blank">Linktree</a>
-            </div>
-            <p style="margin-top: 20px;">Ikuti semua sosial media saya untuk update terbaru!</p>
+            <p>Dibuat dengan <span class="heart"><i class="fas fa-heart"></i></span> oleh Fajrush33 &copy; 2023</p>
+            <p>Semua tautan media sosial resmi tercantum di atas</p>
         </footer>
     </div>
 
     <script>
-        // Membuat efek bintang
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starsCount = 150;
-            
-            for (let i = 0; i < starsCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Ukuran acak untuk bintang
-                const size = Math.random() * 3 + 1;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                
-                // Posisi acak
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                
-                // Animasi dengan delay acak
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                
-                starsContainer.appendChild(star);
-            }
-        }
-        
-        // Animasi teks berjalan dengan jeda
-        function animateMarquee() {
-            const marqueeText = document.querySelector('.marquee-text');
-            let isPaused = false;
-            
-            // Tambahkan jeda di ujung sebelum mengulang
-            marqueeText.innerHTML = marqueeText.innerHTML + " &nbsp; ".repeat(10);
-            
-            // Animasi hover pause
-            marqueeText.addEventListener('mouseenter', () => {
-                marqueeText.style.animationPlayState = 'paused';
-                isPaused = true;
-            });
-            
-            marqueeText.addEventListener('mouseleave', () => {
-                if (isPaused) {
-                    marqueeText.style.animationPlayState = 'running';
-                    isPaused = false;
-                }
-            });
-        }
-        
-        // Inisialisasi saat halaman dimuat
+        // JavaScript untuk meningkatkan interaktivitas
         document.addEventListener('DOMContentLoaded', function() {
-            createStars();
-            animateMarquee();
+            // Efek hover yang lebih halus pada kartu tautan
+            const linkCards = document.querySelectorAll('.link-card');
             
-            // Smooth scroll untuk link navigasi
-            document.querySelectorAll('nav a, .footer-links a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    if (this.getAttribute('href').startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-                        
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
+            linkCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
                 });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Efek klik pada tombol donasi
+            const donateButton = document.querySelector('.donate-button');
+            
+            donateButton.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengarahkan ke Sociabuzz...';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-donate"></i> Donasi via Sociabuzz';
+                }, 2000);
+            });
+            
+            // Animasi tambahan untuk teks berjalan
+            const marqueeText = document.querySelector('.marquee-text');
+            let isHovered = false;
+            
+            marqueeText.addEventListener('mouseenter', function() {
+                isHovered = true;
+                this.style.animationPlayState = 'paused';
+            });
+            
+            marqueeText.addEventListener('mouseleave', function() {
+                isHovered = false;
+                this.style.animationPlayState = 'running';
+            });
+            
+            // Efek parallax sederhana pada background
+            document.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                
+                document.body.style.backgroundPosition = `${xAxis}px ${yAxis}px`;
             });
         });
     </script>
