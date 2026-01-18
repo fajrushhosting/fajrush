@@ -93,7 +93,7 @@
             font-size: 18px;
             font-weight: bold;
             white-space: nowrap;
-            animation: marquee 25s linear infinite;
+            animation: marquee 30s linear infinite;
             display: inline-block;
             padding-left: 100%;
         }
@@ -136,6 +136,8 @@
             transition: all 0.4s ease;
             border: 2px solid transparent;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
         }
         
         .link-item:hover {
@@ -191,6 +193,21 @@
             opacity: 0.9;
             margin-top: 3px;
             font-weight: normal;
+        }
+        
+        .follow-badge {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .follow-text {
@@ -280,8 +297,85 @@
             margin: 5px 0;
         }
         
-        .paused .marquee-text {
-            animation-play-state: paused;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: modalFadeIn 0.5s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-icon.instagram {
+            color: #E1306C;
+        }
+        
+        .modal-icon.tiktok {
+            color: #000;
+        }
+        
+        .modal h3 {
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .modal-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-btn.follow {
+            background: linear-gradient(45deg, #405DE6, #E1306C);
+            color: white;
+        }
+        
+        .modal-btn.cancel {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
         
         @media (max-width: 480px) {
@@ -295,7 +389,7 @@
             
             .marquee-text {
                 font-size: 16px;
-                animation: marquee 30s linear infinite;
+                animation: marquee 35s linear infinite;
             }
             
             .link-item {
@@ -305,24 +399,11 @@
             .marquee-container {
                 padding: 12px;
             }
-        }
-        
-        .marquee-control {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
+            
+            .follow-badge {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
         }
     </style>
 </head>
@@ -340,34 +421,39 @@
                     Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
                     Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
                 </div>
-                <button class="marquee-control" id="pauseBtn">
-                    <i class="fas fa-pause"></i>
-                </button>
             </div>
+            
+            <h1>Fajrush</h1>
+            <p class="subtitle">Selamat datang di halaman link saya</p>
+        </div>
         
         <h2 class="follow-text">Ikuti saya di bawah</h2>
         
         <div class="links">
-            <a href="https://www.instagram.com/fajrush33" class="link-item instagram" target="_blank">
+            <a href="#" class="link-item instagram" onclick="handleInstagramClick(event)">
                 <div class="link-icon">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div class="link-text">
                     Official Instagram
-                    <div class="link-desc">@fajrush33</div>
+                    <div class="link-desc">@fajrush33 - Klik untuk langsung follow</div>
                 </div>
-                <i class="fas fa-external-link-alt"></i>
+                <div class="follow-badge">
+                    <i class="fas fa-user-plus"></i> Auto Follow
+                </div>
             </a>
             
-            <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-939Q0hpehWB" class="link-item tiktok" target="_blank">
+            <a href="#" class="link-item tiktok" onclick="handleTikTokClick(event)">
                 <div class="link-icon">
                     <i class="fab fa-tiktok"></i>
                 </div>
                 <div class="link-text">
                     Official TikTok
-                    <div class="link-desc">@fajrush33</div>
+                    <div class="link-desc">@fajrush33 - Klik untuk langsung follow</div>
                 </div>
-                <i class="fas fa-external-link-alt"></i>
+                <div class="follow-badge">
+                    <i class="fas fa-user-plus"></i> Auto Follow
+                </div>
             </a>
         </div>
         
@@ -403,16 +489,109 @@
     </div>
     
     <div class="footer">
-        <p>© 2023 Fajrush - Personal Linktree</p>
-        <p>Website dibuat dengan HTML & CSS</p>
+        <p>© 2026 FAJRUSH</p>
+        <p>DI BUAT OLEH TEAM FAJRUSH</p>
+    </div>
+    
+    <!-- Modal untuk Instagram -->
+    <div id="instagramModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <h3>Follow Instagram Saya</h3>
+            <p>Anda akan diarahkan ke Instagram untuk mengikuti akun @fajrush33</p>
+            <div class="modal-buttons">
+                <button class="modal-btn follow" onclick="followInstagram()">
+                    <i class="fab fa-instagram"></i> Follow Sekarang
+                </button>
+                <button class="modal-btn cancel" onclick="closeModal('instagramModal')">
+                    Nanti Saja
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal untuk TikTok -->
+    <div id="tiktokModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon tiktok">
+                <i class="fab fa-tiktok"></i>
+            </div>
+            <h3>Follow TikTok Saya</h3>
+            <p>Anda akan diarahkan ke TikTok untuk mengikuti akun @fajrush33</p>
+            <div class="modal-buttons">
+                <button class="modal-btn follow" onclick="followTikTok()">
+                    <i class="fab fa-tiktok"></i> Follow Sekarang
+                </button>
+                <button class="modal-btn cancel" onclick="closeModal('tiktokModal')">
+                    Nanti Saja
+                </button>
+            </div>
+        </div>
     </div>
 
     <script>
+        // Fungsi untuk menangani klik Instagram
+        function handleInstagramClick(event) {
+            event.preventDefault();
+            document.getElementById('instagramModal').style.display = 'flex';
+        }
+        
+        // Fungsi untuk menangani klik TikTok
+        function handleTikTokClick(event) {
+            event.preventDefault();
+            document.getElementById('tiktokModal').style.display = 'flex';
+        }
+        
+        // Fungsi untuk follow Instagram
+        function followInstagram() {
+            // Untuk Instagram, kita gunakan deep link untuk follow
+            // Note: Instagram tidak mendukung auto-follow melalui web
+            // Jadi kita arahkan ke profile Instagram
+            window.open('https://www.instagram.com/fajrush33', '_blank');
+            
+            // Alternatif: Instagram App URI Scheme (hanya bekerja di mobile dengan app Instagram terinstal)
+            // window.location.href = 'instagram://user?username=fajrush33';
+            
+            closeModal('instagramModal');
+            
+            // Tampilkan pesan sukses
+            setTimeout(() => {
+                alert('Terima kasih telah mengikuti Instagram saya! 😊');
+            }, 500);
+        }
+        
+        // Fungsi untuk follow TikTok
+        function followTikTok() {
+            // Untuk TikTok, kita arahkan ke profile TikTok
+            window.open('https://www.tiktok.com/@fajrush33?_r=1&_d=ZS-939Q0hpehWB', '_blank');
+            
+            // Alternatif: TikTok App URI Scheme (hanya bekerja di mobile dengan app TikTok terinstal)
+            // window.location.href = 'tiktok://user?username=fajrush33';
+            
+            closeModal('tiktokModal');
+            
+            // Tampilkan pesan sukses
+            setTimeout(() => {
+                alert('Terima kasih telah mengikuti TikTok saya! 😊');
+            }, 500);
+        }
+        
+        // Fungsi untuk menutup modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Tutup modal jika klik di luar konten modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             const marqueeText = document.querySelector('.marquee-text');
-            const pauseBtn = document.getElementById('pauseBtn');
-            const marqueeContainer = document.querySelector('.marquee-container');
-            let isPaused = false;
             
             // Efek hover pada link
             const linkItems = document.querySelectorAll('.link-item');
