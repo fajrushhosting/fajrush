@@ -15,7 +15,7 @@
         body {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 20s ease infinite;
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -35,7 +35,7 @@
             width: 100%;
             margin: 20px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -61,46 +61,53 @@
             font-size: 40px;
             color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: rotate(360deg);
         }
         
         .logo i {
-            animation: pulse 2s infinite;
+            animation: pulse 3s infinite ease-in-out;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
         .marquee-container {
             background: linear-gradient(to right, #1a2a6c, #b21f1f);
             color: white;
-            padding: 12px;
+            padding: 15px;
             border-radius: 50px;
             margin-bottom: 25px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
         .marquee-text {
             font-size: 18px;
             font-weight: bold;
             white-space: nowrap;
-            animation: marquee 15s linear infinite;
+            animation: marquee 25s linear infinite;
             display: inline-block;
-            padding-right: 100%;
+            padding-left: 100%;
         }
         
         @keyframes marquee {
-            0% { transform: translateX(30%); }
-            100% { transform: translateX(-30%); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
         
         h1 {
             color: #1a2a6c;
             margin-bottom: 10px;
             font-size: 28px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         .subtitle {
@@ -126,14 +133,14 @@
             text-decoration: none;
             color: #333;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: 2px solid transparent;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
         .link-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             border-color: #1a2a6c;
         }
         
@@ -167,6 +174,11 @@
             justify-content: center;
             margin-right: 15px;
             font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .link-item:hover .link-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .link-text {
@@ -188,6 +200,12 @@
             font-size: 20px;
             position: relative;
             display: inline-block;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
         .follow-text:after {
@@ -208,6 +226,12 @@
             padding: 20px;
             margin: 30px 0;
             border-left: 5px solid #4B8BBE;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
         
         .donation-title {
@@ -228,6 +252,7 @@
             padding: 20px;
             margin-top: 20px;
             border-left: 5px solid #FF9900;
+            animation: fadeIn 1.5s ease;
         }
         
         .business-title {
@@ -248,7 +273,15 @@
             text-align: center;
             font-size: 14px;
             padding: 15px;
-            opacity: 0.8;
+            opacity: 0.9;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .paused .marquee-text {
+            animation-play-state: paused;
         }
         
         @media (max-width: 480px) {
@@ -262,11 +295,34 @@
             
             .marquee-text {
                 font-size: 16px;
+                animation: marquee 30s linear infinite;
             }
             
             .link-item {
                 padding: 12px 15px;
             }
+            
+            .marquee-container {
+                padding: 12px;
+            }
+        }
+        
+        .marquee-control {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -281,8 +337,12 @@
                 <div class="marquee-text">
                     Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp; 
                     Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
-                    Selamat datang di website pribadi saya! 😊
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
                 </div>
+                <button class="marquee-control" id="pauseBtn">
+                    <i class="fas fa-pause"></i>
+                </button>
             </div>
         
         <h2 class="follow-text">Ikuti saya di bawah</h2>
@@ -348,13 +408,26 @@
     </div>
 
     <script>
-        // Animasi untuk teks berjalan
         document.addEventListener('DOMContentLoaded', function() {
             const marqueeText = document.querySelector('.marquee-text');
-            const originalText = marqueeText.textContent;
+            const pauseBtn = document.getElementById('pauseBtn');
+            const marqueeContainer = document.querySelector('.marquee-container');
+            let isPaused = false;
             
-            // Duplikasi teks untuk animasi yang lebih smooth
-            marqueeText.innerHTML = originalText + ' ' + originalText + ' ' + originalText;
+            // Tambahkan kontrol pause/play untuk teks berjalan
+            pauseBtn.addEventListener('click', function() {
+                isPaused = !isPaused;
+                
+                if (isPaused) {
+                    marqueeContainer.classList.add('paused');
+                    pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    pauseBtn.title = "Lanjutkan teks berjalan";
+                } else {
+                    marqueeContainer.classList.remove('paused');
+                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    pauseBtn.title = "Jeda teks berjalan";
+                }
+            });
             
             // Efek hover pada link
             const linkItems = document.querySelectorAll('.link-item');
@@ -375,6 +448,13 @@
                 setTimeout(() => {
                     this.style.transform = 'scale(1)';
                 }, 200);
+            });
+            
+            // Efek saat halaman dimuat
+            document.body.style.opacity = 0;
+            window.addEventListener('load', function() {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = 1;
             });
         });
     </script>
