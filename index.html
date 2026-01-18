@@ -14,7 +14,7 @@
         
         body {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #f1f1f1;
+            color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -25,12 +25,7 @@
         .container {
             width: 100%;
             max-width: 500px;
-            background-color: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
         }
         
         .header {
@@ -38,116 +33,107 @@
             margin-bottom: 30px;
         }
         
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #4cc9f0;
+            text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+        }
+        
         .profile-placeholder {
             width: 120px;
             height: 120px;
-            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #4361ee, #3a0ca3);
             border-radius: 50%;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            margin: 0 auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 48px;
+            font-size: 3rem;
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        .running-text-container {
-            background-color: rgba(0, 0, 0, 0.2);
+        .marquee-container {
+            background-color: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .running-text {
-            font-size: 18px;
-            white-space: nowrap;
-            animation: running-text 15s linear infinite;
-            color: #4dabf7;
-            font-weight: 600;
-        }
-        
-        @keyframes running-text {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-        
-        .title {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #fff;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 16px;
-            color: #b0b0b0;
+            padding: 15px;
             margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+        }
+        
+        .marquee-text {
+            font-size: 1.2rem;
+            color: #f72585;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #f72585;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #f72585, #4361ee);
         }
         
         .links-container {
             margin-bottom: 30px;
         }
         
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #74c0fc;
-            text-align: center;
-            font-weight: 600;
-        }
-        
         .link-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
             text-decoration: none;
-            color: #f1f1f1;
+            color: white;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid transparent;
         }
         
         .link-item:hover {
-            background-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: #4361ee;
         }
         
         .link-icon {
             width: 40px;
             height: 40px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 20px;
             margin-right: 15px;
+            font-size: 1.2rem;
         }
         
-        .instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-        
-        .tiktok {
-            background-color: #000000;
-        }
-        
-        .sociabuzz {
-            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
-        }
-        
-        .business {
-            background: linear-gradient(45deg, #00b09b, #96c93d);
-        }
+        .instagram { color: #e4405f; }
+        .tiktok { color: #000; background-color: #fff; }
+        .donate { color: #ffd166; }
+        .business { color: #06d6a0; }
         
         .link-text {
             flex: 1;
@@ -155,80 +141,107 @@
         
         .link-title {
             font-weight: 600;
-            font-size: 16px;
+            margin-bottom: 5px;
         }
         
         .link-desc {
-            font-size: 13px;
-            color: #b0b0b0;
-            margin-top: 3px;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         .donation-section {
-            background-color: rgba(255, 193, 7, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 209, 102, 0.1);
+            border-radius: 10px;
             padding: 20px;
-            margin-top: 25px;
-            border: 1px solid rgba(255, 193, 7, 0.2);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 209, 102, 0.3);
         }
         
         .donation-title {
-            color: #FFC107;
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .donation-text {
-            font-size: 14px;
-            color: #ffd54f;
+            color: #ffd166;
             text-align: center;
             margin-bottom: 15px;
+            font-size: 1.3rem;
         }
         
-        .business-opportunity {
-            background-color: rgba(40, 167, 69, 0.1);
-            border-radius: 12px;
+        .donation-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #ffd166, #ff9e00);
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .donation-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 209, 102, 0.4);
+        }
+        
+        .business-section {
+            background: rgba(6, 214, 160, 0.1);
+            border-radius: 10px;
             padding: 20px;
-            margin-top: 25px;
-            border: 1px solid rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(6, 214, 160, 0.3);
         }
         
         .business-title {
-            color: #28a745;
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .business-text {
-            font-size: 14px;
-            color: #90ee90;
+            color: #06d6a0;
             text-align: center;
             margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .business-desc {
+            margin-bottom: 15px;
             line-height: 1.5;
+            text-align: center;
+        }
+        
+        .business-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #06d6a0, #048a6c);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .business-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(6, 214, 160, 0.4);
         }
         
         .footer {
             text-align: center;
             margin-top: 30px;
-            font-size: 14px;
-            color: #888;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
         
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
             .title {
-                font-size: 24px;
+                font-size: 2rem;
             }
             
-            .running-text {
-                font-size: 16px;
+            .marquee-text {
+                font-size: 1rem;
+            }
+            
+            .link-item {
+                padding: 12px;
             }
         }
     </style>
@@ -236,29 +249,32 @@
 <body>
     <div class="container">
         <div class="header">
+            <h1 class="title">FAJRUSH</h1>
             <div class="profile-placeholder">
                 <i class="fas fa-user"></i>
             </div>
             
-            <div class="running-text-container">
-                <div class="running-text">
-                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="marquee-container">
+                <div class="marquee-text">
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp; 
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Ikuti saya di bawah</h2>
         
         <div class="links-container">
-            <h2 class="section-title">Ikuti saya di bawah</h2>
-            
             <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-item">
                 <div class="link-icon instagram">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div class="link-text">
                     <div class="link-title">Official Instagram</div>
-                    <div class="link-desc">@fajrush33 - Follow untuk update terbaru</div>
+                    <div class="link-desc">@fajrush33</div>
                 </div>
-                <div class="link-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+                <i class="fas fa-chevron-right"></i>
             </a>
             
             <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-939Q0hpehWB" target="_blank" class="link-item">
@@ -267,88 +283,53 @@
                 </div>
                 <div class="link-text">
                     <div class="link-title">Official TikTok</div>
-                    <div class="link-desc">@fajrush33 - Video konten menarik</div>
+                    <div class="link-desc">@fajrush33</div>
                 </div>
-                <div class="link-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+                <i class="fas fa-chevron-right"></i>
             </a>
         </div>
         
         <div class="donation-section">
-            <h3 class="donation-title">Dukung Saya</h3>
-            <p class="donation-text">Jika Anda merasa konten saya bermanfaat, pertimbangkan untuk memberikan dukungan melalui Sociabuzz</p>
-            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="link-item">
-                <div class="link-icon sociabuzz">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <div class="link-text">
-                    <div class="link-title">Donasi via Sociabuzz</div>
-                    <div class="link-desc">Klik untuk mendukung kreator konten</div>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+            <h3 class="donation-title">Dukung Saya di Sociabuzz</h3>
+            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="donation-button">
+                <i class="fas fa-heart"></i> Donasi Sekarang
             </a>
         </div>
         
-        <div class="business-opportunity">
+        <div class="business-section">
             <h3 class="business-title">Peluang Bisnis</h3>
-            <p class="business-text">Buat kalian yang ingin jualan cuman modal minim coba jualan ini, kalian beli di aku lalu kalian jual lagi, dapatkan hingga ratusan juta dengan bisnis ini.</p>
-            <a href="https://lynk.id/fajrush" target="_blank" class="link-item">
-                <div class="link-icon business">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <div class="link-text">
-                    <div class="link-title">Peluang Bisnis Menguntungkan</div>
-                    <div class="link-desc">Klik untuk info lebih lanjut</div>
-                </div>
-                <div class="link-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+            <p class="business-desc">
+                Buat kalian yang ingin jualan cuman modal minim coba jualan ini, 
+                kalian beli di aku lalu kalian jual lagi, dapatkan hingga ratusan juta dengan bisnis ini.
+            </p>
+            <a href="https://lynk.id/fajrush" target="_blank" class="business-button">
+                <i class="fas fa-store"></i> Lihat Peluang Bisnis
             </a>
         </div>
         
         <div class="footer">
-            <p>© 2023 Fajrush33. All rights reserved.</p>
+            <p>© 2023 Fajrush - Link Tree Pribadi</p>
         </div>
     </div>
 
     <script>
-        // Fungsi untuk mengatur ulang animasi teks berjalan
-        function resetRunningTextAnimation() {
-            const runningText = document.querySelector('.running-text');
-            runningText.style.animation = 'none';
-            setTimeout(() => {
-                runningText.style.animation = 'running-text 15s linear infinite';
-            }, 10);
-        }
-        
-        // Reset animasi saat halaman dimuat
-        window.addEventListener('load', resetRunningTextAnimation);
-        
-        // Tambahkan efek hover tambahan untuk link
-        document.querySelectorAll('.link-item').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                this.querySelector('.link-arrow').style.transform = 'translateX(5px)';
-            });
-            
-            link.addEventListener('mouseleave', function() {
-                this.querySelector('.link-arrow').style.transform = 'translateX(0)';
-            });
-        });
-        
-        // Animasi untuk elemen saat halaman dimuat
+        // Efek hover yang lebih smooth
         document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.container');
-            container.style.opacity = '0';
-            container.style.transform = 'translateY(20px)';
+            const links = document.querySelectorAll('.link-item');
             
-            setTimeout(() => {
-                container.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                container.style.opacity = '1';
-                container.style.transform = 'translateY(0)';
-            }, 100);
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Animasi tambahan untuk teks berjalan
+            const marqueeText = document.querySelector('.marquee-text');
+            marqueeText.innerHTML = marqueeText.innerHTML.repeat(5);
         });
     </script>
 </body>
