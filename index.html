@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree Pribadi - Fajrush</title>
+    <title>Linktree Personal - Fajrush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,557 +14,374 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
-            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .container {
             max-width: 600px;
             width: 100%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #eaeaea;
         }
         
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #00dbde, #fc00ff);
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(to right, #1a2a6c, #fdbb2d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo i {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .marquee-container {
-            width: 100%;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 12px;
+            border-radius: 50px;
+            margin-bottom: 25px;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 15px 0;
-            margin-bottom: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .marquee-content {
-            display: flex;
-            animation: marquee 20s linear infinite;
-            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
         .marquee-text {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding: 0 30px;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .marquee-text span {
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .emoji {
-            font-size: 2rem;
-            margin-left: 15px;
-            animation: bounce 2s infinite;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+            display: inline-block;
+            padding-right: 100%;
         }
         
         @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
         
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        h1 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 28px;
         }
         
-        .links-container {
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .links {
             display: flex;
             flex-direction: column;
             gap: 15px;
             margin-bottom: 30px;
         }
         
-        .links-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #4cc9f0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
         .link-item {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 18px 25px;
-            text-decoration: none;
-            color: white;
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 50px;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .link-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.7s;
-        }
-        
-        .link-item:hover::before {
-            left: 100%;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
         .link-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: #1a2a6c;
+        }
+        
+        .link-item.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+        
+        .link-item.tiktok {
+            background-color: #000;
+            color: white;
+        }
+        
+        .link-item.sociabuzz {
+            background: linear-gradient(to right, #4B8BBE, #306998);
+            color: white;
+        }
+        
+        .link-item.bisnis {
+            background: linear-gradient(to right, #FF9900, #FF6600);
+            color: white;
         }
         
         .link-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-        
-        .tiktok {
-            background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55);
+            margin-right: 15px;
+            font-size: 20px;
         }
         
         .link-text {
             flex: 1;
+            text-align: left;
         }
         
-        .link-title {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .link-desc {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 3px;
+            font-weight: normal;
         }
         
-        .link-url {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            word-break: break-all;
+        .follow-text {
+            color: #1a2a6c;
+            font-weight: bold;
+            margin: 25px 0 15px;
+            font-size: 20px;
+            position: relative;
+            display: inline-block;
         }
         
-        .link-arrow {
-            font-size: 1.2rem;
-            opacity: 0.7;
-            transition: transform 0.3s, opacity 0.3s;
-        }
-        
-        .link-item:hover .link-arrow {
-            transform: translateX(5px);
-            opacity: 1;
+        .follow-text:after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #1a2a6c, #fdbb2d);
+            border-radius: 2px;
         }
         
         .donation-section {
-            margin-top: 20px;
-            text-align: center;
-            padding: 30px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .donation-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #f72585, #7209b7);
+            background-color: #f1f8ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            border-left: 5px solid #4B8BBE;
         }
         
         .donation-title {
-            font-size: 1.8rem;
-            font-weight: 700;
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .donation-desc {
+            color: #555;
             margin-bottom: 15px;
-            color: #f72585;
+            line-height: 1.5;
         }
         
-        .donation-description {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-            line-height: 1.6;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+        .business-section {
+            background-color: #fff9f0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 5px solid #FF9900;
         }
         
-        .donation-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #f72585, #7209b7);
-            color: white;
-            padding: 16px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(247, 37, 133, 0.4);
-            position: relative;
-            overflow: hidden;
+        .business-title {
+            color: #FF6600;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
         
-        .donation-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .donation-button:hover::before {
-            left: 100%;
-        }
-        
-        .donation-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(247, 37, 133, 0.5);
-        }
-        
-        .donation-button i {
-            margin-right: 10px;
-            font-size: 1.2rem;
+        .business-desc {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
         
         .footer {
-            margin-top: 40px;
+            margin-top: 30px;
+            color: #fff;
             text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.6;
-            padding: 20px;
+            font-size: 14px;
+            padding: 15px;
+            opacity: 0.8;
         }
         
-        /* Efek partikel background */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .container {
                 padding: 15px;
             }
             
-            .header {
-                padding: 25px 15px;
-                margin-bottom: 30px;
+            h1 {
+                font-size: 24px;
             }
             
             .marquee-text {
-                font-size: 1.5rem;
-            }
-            
-            .emoji {
-                font-size: 1.7rem;
-            }
-            
-            .links-title {
-                font-size: 1.6rem;
+                font-size: 16px;
             }
             
             .link-item {
-                padding: 15px 20px;
-            }
-            
-            .link-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            
-            .donation-section {
-                padding: 25px 20px;
-            }
-            
-            .donation-title {
-                font-size: 1.6rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .marquee-text {
-                font-size: 1.3rem;
-            }
-            
-            .marquee-content {
-                animation: marquee 15s linear infinite;
-            }
-            
-            .links-title {
-                font-size: 1.4rem;
-            }
-            
-            .link-title {
-                font-size: 1.1rem;
-            }
-            
-            .link-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-                margin-right: 15px;
-            }
-            
-            .donation-button {
-                padding: 14px 25px;
-                font-size: 1rem;
+                padding: 12px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Efek partikel background -->
-    <div class="particles" id="particles"></div>
-    
     <div class="container">
-        <header class="header">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-user"></i>
+            </div>
+            
             <div class="marquee-container">
-                <div class="marquee-content">
-                    <div class="marquee-text">
-                        <span>Selamat datang di website pribadi saya!</span>
-                        <div class="emoji">😊</div>
-                    </div>
-                    <!-- Duplikat untuk efek berlanjut -->
-                    <div class="marquee-text">
-                        <span>Selamat datang di website pribadi saya!</span>
-                        <div class="emoji">😊</div>
-                    </div>
+                <div class="marquee-text">
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp; 
+                    Selamat datang di website pribadi saya! 😊 &nbsp;&nbsp;&nbsp;
+                    Selamat datang di website pribadi saya! 😊
                 </div>
             </div>
-        </header>
+            
+            <h1>Fajrush</h1>
+            <p class="subtitle">Selamat datang di halaman link saya</p>
+        </div>
         
-        <h2 class="links-title">Link Sosial Media</h2>
+        <h2 class="follow-text">Ikuti saya di bawah</h2>
         
-        <div class="links-container">
-            <a href="https://www.instagram.com/fajrush33" target="_blank" class="link-item">
-                <div class="link-icon instagram">
+        <div class="links">
+            <a href="https://www.instagram.com/fajrush33" class="link-item instagram" target="_blank">
+                <div class="link-icon">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div class="link-text">
-                    <div class="link-title">Official Instagram</div>
-                    <div class="link-url">https://www.instagram.com/fajrush33</div>
+                    Official Instagram
+                    <div class="link-desc">@fajrush33</div>
                 </div>
-                <div class="link-arrow">
-                    <i class="fas fa-external-link-alt"></i>
-                </div>
+                <i class="fas fa-external-link-alt"></i>
             </a>
             
-            <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-939Q0hpehWB" target="_blank" class="link-item">
-                <div class="link-icon tiktok">
+            <a href="https://www.tiktok.com/@fajrush33?_r=1&_t=ZS-939Q0hpehWB" class="link-item tiktok" target="_blank">
+                <div class="link-icon">
                     <i class="fab fa-tiktok"></i>
                 </div>
                 <div class="link-text">
-                    <div class="link-title">Official TikTok</div>
-                    <div class="link-url">https://www.tiktok.com/@fajrush33</div>
+                    Official TikTok
+                    <div class="link-desc">@fajrush33</div>
                 </div>
-                <div class="link-arrow">
-                    <i class="fas fa-external-link-alt"></i>
-                </div>
+                <i class="fas fa-external-link-alt"></i>
             </a>
         </div>
         
-        <section class="donation-section">
-            <h2 class="donation-title">Dukung Saya di Sociabuzz</h2>
-            <p class="donation-description">
-                Jika Anda merasa konten saya bermanfaat, Anda dapat mendukung saya dengan berdonasi melalui Sociabuzz. Setiap dukungan akan sangat berarti bagi saya untuk terus berkarya.
-            </p>
-            <a href="https://sociabuzz.com/fajrush/tribe" target="_blank" class="donation-button">
-                <i class="fas fa-heart"></i> Dukung Sekarang
+        <div class="donation-section">
+            <h3 class="donation-title"><i class="fas fa-heart"></i> Dukung Saya</h3>
+            <p class="donation-desc">Jika Anda ingin mendukung karya dan konten saya, Anda bisa melakukan donasi melalui Sociabuzz. Setiap donasi sangat berarti untuk pengembangan konten yang lebih baik.</p>
+            <a href="https://sociabuzz.com/fajrush/tribe" class="link-item sociabuzz" target="_blank">
+                <div class="link-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div class="link-text">
+                    Donasi via Sociabuzz
+                    <div class="link-desc">Klik untuk donasi otomatis</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
             </a>
-        </section>
+        </div>
         
-        <footer class="footer">
-            <p>© 2026 Website Pribadi Fajrush | Dibuat oleh team FAJRUSH </p>
-        </footer>
+        <div class="business-section">
+            <h3 class="business-title"><i class="fas fa-briefcase"></i> Peluang Bisnis</h3>
+            <p class="business-desc">Buat kalian yang ingin jualan cuman modal minim coba jualan ini, kalian beli di aku lalu kalian jual lagi, dapatkan hingga ratusan juta dengan bisnis ini.</p>
+            <a href="https://lynk.id/fajrush" class="link-item bisnis" target="_blank">
+                <div class="link-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="link-text">
+                    Peluang Bisnis Menguntungkan
+                    <div class="link-desc">Klik untuk informasi lebih lanjut</div>
+                </div>
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 Fajrush - Personal Linktree</p>
+        <p>Website dibuat dengan HTML & CSS</p>
     </div>
 
     <script>
-        // Membuat efek partikel background
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+        // Animasi untuk teks berjalan
+        document.addEventListener('DOMContentLoaded', function() {
+            const marqueeText = document.querySelector('.marquee-text');
+            const originalText = marqueeText.textContent;
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            // Duplikasi teks untuk animasi yang lebih smooth
+            marqueeText.innerHTML = originalText + ' ' + originalText + ' ' + originalText;
+            
+            // Efek hover pada link
+            const linkItems = document.querySelectorAll('.link-item');
+            linkItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
                 
-                // Ukuran acak
-                const size = Math.random() * 10 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Posisi acak
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                
-                // Animasi dengan durasi acak
-                const duration = Math.random() * 20 + 10;
-                particle.style.animationDuration = `${duration}s`;
-                
-                // Delay acak
-                const delay = Math.random() * 5;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Efek hover yang lebih interaktif
-        document.querySelectorAll('.link-item').forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
             
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+            // Efek interaktif pada logo
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
             });
         });
-        
-        // Efek tombol donasi
-        const donateBtn = document.querySelector('.donation-button');
-        donateBtn.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-        });
-        
-        donateBtn.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-        
-        // Menyesuaikan kecepatan marquee berdasarkan lebar layar
-        function adjustMarquee() {
-            const marqueeContent = document.querySelector('.marquee-content');
-            
-            if (window.innerWidth <= 480) {
-                marqueeContent.style.animationDuration = '15s';
-            } else {
-                marqueeContent.style.animationDuration = '20s';
-            }
-        }
-        
-        // Inisialisasi
-        window.addEventListener('load', function() {
-            createParticles();
-            adjustMarquee();
-        });
-        
-        window.addEventListener('resize', adjustMarquee);
-        
-        // Efek ketik untuk judul link (opsional)
-        const linksTitle = document.querySelector('.links-title');
-        const originalText = linksTitle.textContent;
-        linksTitle.textContent = '';
-        
-        let charIndex = 0;
-        function typeEffect() {
-            if (charIndex < originalText.length) {
-                linksTitle.textContent += originalText.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeEffect, 50);
-            }
-        }
-        
-        // Mulai efek ketik setelah sedikit delay
-        setTimeout(typeEffect, 500);
     </script>
 </body>
 </html>
