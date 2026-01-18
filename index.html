@@ -414,21 +414,6 @@
             const marqueeContainer = document.querySelector('.marquee-container');
             let isPaused = false;
             
-            // Tambahkan kontrol pause/play untuk teks berjalan
-            pauseBtn.addEventListener('click', function() {
-                isPaused = !isPaused;
-                
-                if (isPaused) {
-                    marqueeContainer.classList.add('paused');
-                    pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                    pauseBtn.title = "Lanjutkan teks berjalan";
-                } else {
-                    marqueeContainer.classList.remove('paused');
-                    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    pauseBtn.title = "Jeda teks berjalan";
-                }
-            });
-            
             // Efek hover pada link
             const linkItems = document.querySelectorAll('.link-item');
             linkItems.forEach(item => {
